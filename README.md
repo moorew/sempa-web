@@ -25,7 +25,7 @@ database, no framework. Drop the contents of this folder onto any static host.
 ## Things to wire before launch
 1. **Donation links** — replace the placeholders:
    - GitHub Sponsors: `https://github.com/sponsors/moorew` (donate.html, twice)
-   - Ko-fi: `https://ko-fi.com/moorew` (donate.html)
+   - Ko-fi: `https://ko-fi.com/clevercode` (donate.html)
 2. **Releases** — the Download page reads `api.github.com/repos/moorew/sempa/releases`
    live. Until the repo has published releases (with `.msi` / `.apk` assets), it
    gracefully falls back to linking `…/releases/latest`. Asset matching uses
