@@ -295,8 +295,8 @@ kbd{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--sempa
 .footer .fcol a:hover{color:var(--sempa-accent)}
 .footer-base{border-top:1px solid var(--sempa-border);padding-top:28px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;color:var(--sempa-text-dim);font-size:13px}
 .footer-base .tib-mini{color:var(--sempa-accent);font-size:15px}
-.footer-base .made-ca{display:inline-flex;align-items:center;gap:7px;color:var(--sempa-text-soft)}
-.footer-base .made-ca .maple{width:13px;height:13px;fill:var(--sempa-accent);flex-shrink:0}
+.footer-base .made-ca{display:inline-flex;align-items:center;gap:8px;color:var(--sempa-text-soft)}
+.footer-base .made-ca .maple{width:16px;height:16px;fill:var(--sempa-accent);flex-shrink:0}
 
 /* ── Live app mockup (hero — themeable week view) ────────────────────── */
 .appshot{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--sempa-border);box-shadow:var(--shadow-float);background:var(--sempa-bg-main)}
