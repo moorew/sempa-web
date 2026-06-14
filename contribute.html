@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="terracotta">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contribute — Sempa</title>
+<meta name="description" content="Sempa is open source and welcomes help — native clients for macOS, iOS and Linux, new integrations, packaging, docs and testing. Here's how to get involved."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<script>(function(){try{var t=localStorage.getItem('sempa-site-theme')||'terracotta';var m=localStorage.getItem('sempa-site-mode')||'light';if(t==='oled')m='dark';document.documentElement.setAttribute('data-theme',t);if(m==='dark')document.documentElement.classList.add('dark');}catch(e){}})();</script>
+<link rel="stylesheet" href="assets/site.css"/>
+<script src="assets/site.js" defer></script>
+<style>
+  .want{display:flex;gap:13px;padding:18px;border:1px solid var(--sempa-border);border-radius:var(--r-md);background:var(--card-bg);align-items:flex-start}
+  .want .wi{width:38px;height:38px;border-radius:10px;background:var(--sempa-accent-bg);color:var(--sempa-accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .want .wi svg{width:19px;height:19px}
+  .want h4{font-size:15.5px;margin-bottom:4px}
+  .want p{font-size:13.5px;color:var(--sempa-text-soft);line-height:1.5}
+  .want .tag{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--sempa-amber);margin-top:8px;display:inline-block}
+  .step{display:flex;gap:16px;padding:18px 0;border-top:1px solid var(--sempa-border)}
+  .step .n{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:var(--sempa-accent);width:28px;flex-shrink:0}
+  .step h4{font-size:16px;margin-bottom:5px}
+  .step p{font-size:14px;color:var(--sempa-text-soft)}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="index.html" aria-label="Sempa home">
+      <svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M22,40 a28,28 0 0 0 56,0" stroke="currentColor" stroke-width="9" stroke-linecap="round"/><circle cx="50" cy="35" r="7.5" fill="currentColor"/></svg>
+      sempa
+    </a>
+    <nav class="nav-links" id="nav-links">
+      <a href="features.html">Features</a>
+      <a href="download.html">Download</a>
+      <a href="docs.html">Docs</a>
+      <a href="contribute.html">Contribute</a>
+      <a href="donate.html">Donate</a>
+    </nav>
+    <div class="nav-right">
+      <div style="position:relative">
+        <button class="icon-btn" id="theme-trigger" aria-label="Change theme" title="Theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="12" r="2.5"/><circle cx="8.5" cy="7.5" r="2.5"/><circle cx="6.5" cy="13" r="2.5"/><path d="M12 22a10 10 0 1 1 0-20 8 8 0 0 1 8 8c0 2-1.5 3-3 3h-2a2 2 0 0 0-1.5 3.3A2 2 0 0 1 12 22Z"/></svg>
+        </button>
+        <div class="theme-pop" id="theme-pop"></div>
+      </div>
+      <a class="icon-btn donate-hide" href="https://github.com/moorew/sempa" target="_blank" rel="noopener" aria-label="GitHub repository" title="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5A10.5 10.5 0 0 0 1.5 12c0 4.64 3 8.57 7.18 9.96.53.1.72-.23.72-.5v-1.76c-2.92.63-3.54-1.4-3.54-1.4-.48-1.22-1.17-1.55-1.17-1.55-.95-.65.07-.64.07-.64 1.06.07 1.61 1.09 1.61 1.09.94 1.6 2.46 1.14 3.06.87.1-.68.37-1.14.67-1.4-2.33-.27-4.78-1.16-4.78-5.18 0-1.15.41-2.08 1.08-2.82-.11-.27-.47-1.34.1-2.79 0 0 .88-.28 2.88 1.07a10 10 0 0 1 5.24 0c2-1.35 2.88-1.07 2.88-1.07.57 1.45.21 2.52.1 2.79.67.74 1.08 1.67 1.08 2.82 0 4.03-2.46 4.91-4.8 5.17.38.33.71.97.71 1.96v2.9c0 .28.19.61.73.5A10.5 10.5 0 0 0 22.5 12 10.5 10.5 0 0 0 12 1.5Z"/></svg>
+      </a>
+      <a class="btn btn-primary donate-hide" href="donate.html" style="padding:9px 16px;font-size:14px">Support</a>
+      <button class="icon-btn nav-toggle" id="nav-toggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section style="padding-bottom:0">
+  <div class="wrap narrow center">
+    <p class="eyebrow reveal">Contribute</p>
+    <h1 class="h1 reveal" style="margin-top:16px">Built in the open. Better with you.</h1>
+    <p class="lede reveal" style="margin:18px auto 0">Sempa is AGPL-3.0-licensed and maintained in spare hours. Whether you write Go and Svelte, run a platform you'd love to see supported, or just want to file a thoughtful bug — there's a place for you here.</p>
+    <div class="hero-cta reveal" style="justify-content:center;margin-top:28px">
+      <a class="btn btn-primary btn-lg" href="https://github.com/moorew/sempa" target="_blank" rel="noopener">Open the repo</a>
+      <a class="btn btn-ghost btn-lg" href="https://github.com/moorew/sempa/issues" target="_blank" rel="noopener">Browse issues</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HELP WANTED ══ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Help wanted</span>
+      <h2 class="h2">Where Sempa needs hands.</h2>
+      <p class="lede">The most useful contributions right now — pick anything that fits your stack or your itch.</p>
+    </div>
+
+    <h3 class="h3 reveal" style="margin-bottom:16px">New clients</h3>
+    <div class="grid g-3 reveal" style="margin-bottom:40px">
+      <div class="want"><span class="wi"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 3c.1 1-.3 2-1 2.7-.7.8-1.8 1.4-2.8 1.3-.1-1 .4-2 1-2.7C13.9 3.6 15 3 16 3Zm2.5 14c-.5 1.2-.8 1.7-1.5 2.7-1 1.4-2.3 3.1-4 3.1s-2-1-3.7-1-2.2 1-3.7 1-2.9-1.5-3.9-2.9C-.1 16.7-.4 12 1.7 9.6c1-1.2 2.5-1.9 3.9-1.9 1.5 0 2.5 1 3.7 1s2-1 3.7-1c1.2 0 2.5.6 3.5 1.7-3 1.7-2.6 6 .9 7.6Z"/></svg></span><div><h4>macOS app</h4><p>A Tauri desktop build for Mac — much of the shell is shared with Windows already.</p><span class="tag">Rust · Tauri</span></div></div>
+      <div class="want"><span class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 19h2"/></svg></span><div><h4>iOS app</h4><p>A Capacitor build for iPhone &amp; iPad, including on-device reminder scheduling.</p><span class="tag">Capacitor · Swift</span></div></div>
+      <div class="want"><span class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-2 3-2 5 0 8s2 5 0 8"/><circle cx="12" cy="12" r="9"/></svg></span><div><h4>Linux desktop</h4><p>An AppImage or Flatpak client to round out the desktop trio.</p><span class="tag">Rust · Tauri</span></div></div>
+    </div>
+
+    <h3 class="h3 reveal" style="margin-bottom:16px">Integrations</h3>
+    <div class="grid g-3 reveal" style="margin-bottom:40px">
+      <div class="want"><span class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><div><h4>More email providers</h4><p>Outlook / Microsoft 365, iCloud Mail, and a generic IMAP path so any inbox can feed tasks.</p><span class="tag">Go</span></div></div>
+      <div class="want"><span class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg></span><div><h4>More calendars</h4><p>iCloud Calendar and broader CalDAV coverage beyond today's Google, Fastmail and ICS feeds.</p><span class="tag">Go</span></div></div>
+      <div class="want"><span class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 7v8M12 7v5M16 7v11"/></svg></span><div><h4>More task &amp; PM tools</h4><p>Linear, GitHub Issues, Todoist, Asana — bring assigned work in the way Jira already does.</p><span class="tag">Go · REST</span></div></div>
+      <div class="want"><span class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-6 0v4M5 9h14l-1 11H6L5 9Z"/></svg></span><div><h4>Notification backends</h4><p>More push channels alongside Web Push, Android and webhooks — Matrix, Telegram, Pushover.</p><span class="tag">Go</span></div></div>
+      <div class="want"><span class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H5.2L4 18V4Z"/><path d="M8 9h8M8 12h5"/></svg></span><div><h4>Slack integration</h4><p>On the roadmap — turn Slack messages into tasks and post reminders to a channel.</p><span class="tag">Roadmap</span></div></div>
+      <div class="want"><span class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 4v4h-4"/></svg></span><div><h4>CalDAV write-back</h4><p>Push Sempa time-blocks back to your calendar as events, not just read from it.</p><span class="tag">Roadmap</span></div></div>
+    </div>
+
+    <h3 class="h3 reveal" style="margin-bottom:16px">Packaging &amp; distribution</h3>
+    <div class="grid g-3 reveal">
+      <div class="want"><span class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 7.5v9L12 21l9-4.5v-9L12 3Z"/><path d="m3 7.5 9 4.5 9-4.5M12 21v-9"/></svg></span><div><h4>Public Docker image</h4><p>Publish a multi-arch image to GHCR so self-hosting is a single <span class="mono">docker run</span>.</p><span class="tag">Roadmap · CI</span></div></div>
+      <div class="want"><span class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></span><div><h4>F-Droid listing</h4><p>Get the Android build into F-Droid with a reproducible build pipeline.</p><span class="tag">Android · CI</span></div></div>
+      <div class="want"><span class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.5 11.5a1 1 0 0 1-1 .9H7.5a1 1 0 0 1-1-.9L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></span><div><h4>Homebrew &amp; package managers</h4><p>A Homebrew cask, Scoop/winget manifest, and AUR package for one-line installs.</p><span class="tag">Packaging</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ OTHER WAYS ══ -->
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head center reveal"><span class="eyebrow">Not a coder?</span><h2 class="h2">Plenty of ways to help.</h2></div>
+    <div class="grid g-4 reveal">
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4v16h16v-7"/><path d="M18.5 2.5a2.1 2.1 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5Z"/></svg></div><h3>Docs &amp; guides</h3><p>Improve the user guide, write a self-hosting walkthrough, or record a short setup video.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6"/></svg></div><h3>Translations</h3><p>Help localise the interface so Sempa feels at home in more languages.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></div><h3>Testing &amp; bugs</h3><p>Try the apps, file clear reproducible issues, and help triage what comes in.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 3-3.3 3-5.5A3.5 3.5 0 0 0 18.5 5c-1.4 0-2.6.8-3.5 2-.9-1.2-2.1-2-3.5-2A3.5 3.5 0 0 0 8 8.5c0 2.2 1.5 4 3 5.5l4 4 4-4Z"/></svg></div><h3>Sponsor</h3><p>Can't contribute time? A small donation keeps the lights on. <a href="donate.html" style="color:var(--sempa-accent)">Support →</a></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DEV SETUP ══ -->
+<section>
+  <div class="wrap narrow">
+    <div class="sec-head reveal" style="margin-bottom:8px"><span class="eyebrow" style="display:block;margin-bottom:14px">Getting started</span><h2 class="h2">Run it locally in minutes.</h2></div>
+    <div class="reveal">
+      <div class="step"><span class="n">01</span><div><h4>Fork &amp; clone</h4><p>Grab the repo from GitHub. Requirements: Go 1.21+ and Node.js 20+.</p></div></div>
+      <div class="step"><span class="n">02</span><div><h4>Run backend &amp; frontend</h4><p>The Go server runs on :9001; the SvelteKit dev server on :5173 proxies the API to it.</p></div></div>
+      <div class="step"><span class="n">03</span><div><h4>Build native apps</h4><p>Capacitor for Android (Android Studio), Tauri for desktop (Rust toolchain).</p></div></div>
+    </div>
+    <div class="code reveal" style="margin-top:22px"><span class="c"># Backend — runs on :9001</span>
+cd backend && go run ./cmd/server/
+
+<span class="c"># Frontend — runs on :5173, proxies API to :9001</span>
+cd frontend && npm install && npm run dev</div>
+    <p class="muted reveal" style="margin-top:18px;font-size:14.5px">Architecture is API-first: a Go + SQLite backend, a SvelteKit frontend, Tauri for desktop and Capacitor for Android. Open a draft PR early — small, focused changes are easiest to review and merge.</p>
+  </div>
+</section>
+
+<!-- ══ HOW TO TAKE PART ══ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Get involved</span><h2 class="h2">Three ways to take part.</h2></div>
+    <div class="grid g-3 reveal">
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="6" width="8" height="14" rx="4"/><path d="M12 2v2M5 9H2m3 5H2m20-5h-3m3 5h-3M6 5 4.5 3.5M18 5l1.5-1.5"/></svg></div><h3>Report a bug or idea</h3><p>Found a bug or have a feature request? Open an issue — it's tracked and triaged in the open.</p><a class="btn btn-ghost" style="margin-top:14px" href="https://github.com/moorew/sempa/issues" target="_blank" rel="noopener">Open an issue →</a></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4M6 8l-4 4 4 4M14.5 4l-5 16"/></svg></div><h3>Contribute code</h3><p>Contributions welcome. The Contributing guide covers setup, conventions and how PRs are reviewed.</p><a class="btn btn-ghost" style="margin-top:14px" href="https://github.com/moorew/sempa/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contributing guide →</a></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.4 7.6 8 9 4.6-1.4 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></div><h3>Report a vulnerability</h3><p>Found a security issue? Please report it <b>privately</b> — don't open a public issue. See the Security Policy.</p><a class="btn btn-ghost" style="margin-top:14px" href="https://github.com/moorew/sempa/blob/main/SECURITY.md" target="_blank" rel="noopener">Security policy →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section class="band">
+  <div class="wrap center">
+    <h2 class="h2 reveal">Pick a thread and pull.</h2>
+    <p class="lede reveal center" style="margin:18px auto 30px;max-width:520px">Star the repo, open an issue to claim something, or just say hello in Discussions. Every bit helps Sempa hold more of the day for more people.</p>
+    <div class="hero-cta reveal" style="justify-content:center">
+      <a class="btn btn-primary btn-lg" href="https://github.com/moorew/sempa" target="_blank" rel="noopener">Contribute on GitHub</a>
+      <a class="btn btn-ghost btn-lg" href="https://github.com/moorew/sempa/discussions" target="_blank" rel="noopener">Join the discussion</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html"><svg viewBox="0 0 100 100" fill="none"><path d="M22,40 a28,28 0 0 0 56,0" stroke="currentColor" stroke-width="9" stroke-linecap="round"/><circle cx="50" cy="35" r="7.5" fill="currentColor"/></svg>sempa</a>
+        <p class="tagline">A calm, self-hosted task manager. A mind vast enough to hold the day.</p>
+      </div>
+      <div class="fcol"><div class="fh">Product</div><a href="features.html">Features</a><a href="download.html">Download</a><a href="docs.html">Documentation</a></div>
+      <div class="fcol"><div class="fh">Project</div><a href="contribute.html">Contribute</a><a href="https://github.com/moorew/sempa" target="_blank" rel="noopener">GitHub</a><a href="donate.html">Donate</a><a href="sponsors.html">Sponsors</a></div>
+      <div class="fcol"><div class="fh">More</div><a href="open-source.html">Open source</a><a href="docs.html#self-hosting">Self-hosting</a><a href="https://github.com/moorew/sempa/releases" target="_blank" rel="noopener">Releases</a><a href="https://github.com/moorew/sempa/security/policy" target="_blank" rel="noopener">Security</a><a href="privacy.html">Privacy</a><a href="https://github.com/moorew/sempa/blob/main/LICENSE" target="_blank" rel="noopener">AGPL-3.0 license</a></div>
+    </div>
+    <div class="footer-base">
+      <span>© <span class="yr">2026</span> Sempa · AGPL-3.0 licensed · Made with care.</span>
+      <span class="tib-mini" lang="bo" title="Sempa Chenpo — a mind vast enough to hold the day">སེམས་དཔའ་ཆེན་པོ</span>
+    </div>
+  </div>
+</footer>
+<script>document.querySelectorAll('.yr').forEach(function(e){e.textContent=new Date().getFullYear();});</script>
+</body>
+</html>

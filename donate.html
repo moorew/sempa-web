@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="terracotta">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Support Sempa — Donate</title>
+<meta name="description" content="Sempa is free and open source, and always free to self-host. If it earns a place in your day, support its upkeep through GitHub Sponsors or Ko-fi."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<script>(function(){try{var t=localStorage.getItem('sempa-site-theme')||'terracotta';var m=localStorage.getItem('sempa-site-mode')||'light';if(t==='oled')m='dark';document.documentElement.setAttribute('data-theme',t);if(m==='dark')document.documentElement.classList.add('dark');}catch(e){}})();</script>
+<link rel="stylesheet" href="assets/site.css"/>
+<script src="assets/site.js" defer></script>
+<style>
+  .give{display:flex;flex-direction:column;gap:16px;padding:32px;border:1px solid var(--sempa-border);border-radius:var(--r-lg);background:var(--card-bg);box-shadow:var(--shadow-card)}
+  .give .gtop{display:flex;align-items:center;gap:14px}
+  .give .gico{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .give .gico svg{width:27px;height:27px}
+  .give h3{font-size:21px}
+  .give .gsub{font-size:13px;color:var(--sempa-text-dim);font-family:'JetBrains Mono',monospace}
+  .give p{font-size:14.5px;color:var(--sempa-text-soft);line-height:1.55}
+  .give .btn{margin-top:auto}
+  .fund{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-top:1px solid var(--sempa-border)}
+  .fund .fi{width:34px;height:34px;border-radius:9px;background:var(--sempa-accent-bg);color:var(--sempa-accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .fund .fi svg{width:17px;height:17px}
+  .fund h4{font-size:15.5px;margin-bottom:3px}
+  .fund p{font-size:14px;color:var(--sempa-text-soft)}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="index.html" aria-label="Sempa home">
+      <svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M22,40 a28,28 0 0 0 56,0" stroke="currentColor" stroke-width="9" stroke-linecap="round"/><circle cx="50" cy="35" r="7.5" fill="currentColor"/></svg>
+      sempa
+    </a>
+    <nav class="nav-links" id="nav-links">
+      <a href="features.html">Features</a>
+      <a href="download.html">Download</a>
+      <a href="docs.html">Docs</a>
+      <a href="contribute.html">Contribute</a>
+      <a href="donate.html">Donate</a>
+    </nav>
+    <div class="nav-right">
+      <div style="position:relative">
+        <button class="icon-btn" id="theme-trigger" aria-label="Change theme" title="Theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="12" r="2.5"/><circle cx="8.5" cy="7.5" r="2.5"/><circle cx="6.5" cy="13" r="2.5"/><path d="M12 22a10 10 0 1 1 0-20 8 8 0 0 1 8 8c0 2-1.5 3-3 3h-2a2 2 0 0 0-1.5 3.3A2 2 0 0 1 12 22Z"/></svg>
+        </button>
+        <div class="theme-pop" id="theme-pop"></div>
+      </div>
+      <a class="icon-btn donate-hide" href="https://github.com/moorew/sempa" target="_blank" rel="noopener" aria-label="GitHub repository" title="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5A10.5 10.5 0 0 0 1.5 12c0 4.64 3 8.57 7.18 9.96.53.1.72-.23.72-.5v-1.76c-2.92.63-3.54-1.4-3.54-1.4-.48-1.22-1.17-1.55-1.17-1.55-.95-.65.07-.64.07-.64 1.06.07 1.61 1.09 1.61 1.09.94 1.6 2.46 1.14 3.06.87.1-.68.37-1.14.67-1.4-2.33-.27-4.78-1.16-4.78-5.18 0-1.15.41-2.08 1.08-2.82-.11-.27-.47-1.34.1-2.79 0 0 .88-.28 2.88 1.07a10 10 0 0 1 5.24 0c2-1.35 2.88-1.07 2.88-1.07.57 1.45.21 2.52.1 2.79.67.74 1.08 1.67 1.08 2.82 0 4.03-2.46 4.91-4.8 5.17.38.33.71.97.71 1.96v2.9c0 .28.19.61.73.5A10.5 10.5 0 0 0 22.5 12 10.5 10.5 0 0 0 12 1.5Z"/></svg>
+      </a>
+      <a class="btn btn-primary donate-hide" href="donate.html" style="padding:9px 16px;font-size:14px">Support</a>
+      <button class="icon-btn nav-toggle" id="nav-toggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section style="padding-bottom:0">
+  <div class="wrap narrow center">
+    <p class="eyebrow reveal">Support</p>
+    <h1 class="h1 reveal" style="margin-top:16px">Free for everyone.<br/>Kept alive by some.</h1>
+    <p class="lede reveal" style="margin:18px auto 0">The app is free and open source, and self-hosting it will always be free — no ads, no upsell. It's built and maintained in spare hours. If it's earned a place in your day, a small gift keeps it cared for — and helps the new clients arrive sooner.</p>
+  </div>
+</section>
+
+<!-- ══ TWO WAYS ══ -->
+<section>
+  <div class="wrap narrow">
+    <div class="grid g-2 reveal">
+      <div class="give">
+        <div class="gtop">
+          <span class="gico" style="background:#1f2328;color:#fff">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5A10.5 10.5 0 0 0 1.5 12c0 4.64 3 8.57 7.18 9.96.53.1.72-.23.72-.5v-1.76c-2.92.63-3.54-1.4-3.54-1.4-.48-1.22-1.17-1.55-1.17-1.55-.95-.65.07-.64.07-.64 1.06.07 1.61 1.09 1.61 1.09.94 1.6 2.46 1.14 3.06.87.1-.68.37-1.14.67-1.4-2.33-.27-4.78-1.16-4.78-5.18 0-1.15.41-2.08 1.08-2.82-.11-.27-.47-1.34.1-2.79 0 0 .88-.28 2.88 1.07a10 10 0 0 1 5.24 0c2-1.35 2.88-1.07 2.88-1.07.57 1.45.21 2.52.1 2.79.67.74 1.08 1.67 1.08 2.82 0 4.03-2.46 4.91-4.8 5.17.38.33.71.97.71 1.96v2.9c0 .28.19.61.73.5A10.5 10.5 0 0 0 22.5 12 10.5 10.5 0 0 0 12 1.5Z"/></svg>
+          </span>
+          <div><h3>GitHub Sponsors</h3><div class="gsub">recurring · 100% to the project</div></div>
+        </div>
+        <p>The best way to help sustainably. Sponsor monthly from a couple of dollars up — GitHub takes no fee, so every cent goes to keeping Sempa maintained. Cancel anytime.</p>
+        <a class="btn btn-primary btn-lg" href="https://github.com/sponsors/moorew" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 3-3.3 3-5.5A3.5 3.5 0 0 0 18.5 5c-1.4 0-2.6.8-3.5 2-.9-1.2-2.1-2-3.5-2A3.5 3.5 0 0 0 8 8.5c0 2.2 1.5 4 3 5.5l4 4 4-4Z"/></svg>
+          Sponsor on GitHub
+        </a>
+      </div>
+
+      <div class="give">
+        <div class="gtop">
+          <span class="gico" style="background:#ff5e5b;color:#fff">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 4h12a4 4 0 0 1 4 4 4.5 4.5 0 0 1-4.5 4.5H16v.5a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V5a1 1 0 0 1 1-1Zm11 6.5a2.5 2.5 0 0 0 0-5h-.5v5h.5Z"/><path d="M7 19h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+          <div><h3>Ko-fi</h3><div class="gsub">one-off · no account needed</div></div>
+        </div>
+        <p>Prefer to leave a one-time tip? Buy the project a coffee on Ko-fi. No sign-up required for you, and it's the quickest way to say “this is useful.”</p>
+        <a class="btn btn-soft btn-lg" href="https://ko-fi.com/moorew" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13a3 3 0 0 1 0 6h-1M4 8v6a4 4 0 0 0 4 4h4a4 4 0 0 0 4-4M6 3v2M10 3v2M14 3v2"/></svg>
+          Tip on Ko-fi
+        </a>
+      </div>
+    </div>
+    <p class="dim center reveal" style="margin-top:18px;font-size:13px">Donation links are being finalised — they'll point to the project's official GitHub Sponsors and Ko-fi pages.</p>
+  </div>
+</section>
+
+<!-- ══ WHAT IT FUNDS ══ -->
+<section class="band">
+  <div class="wrap narrow">
+    <div class="sec-head reveal" style="margin-bottom:8px"><span class="eyebrow" style="display:block;margin-bottom:14px">Where it goes</span><h2 class="h2">What your support pays for.</h2></div>
+    <div class="reveal">
+      <div class="fund"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 8l7-5 7 5"/></svg></span><div><h4>Maintenance &amp; security</h4><p>Keeping dependencies current, fixing bugs, and responding to security reports promptly.</p></div></div>
+      <div class="fund"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 19h2"/></svg></span><div><h4>New clients</h4><p>The macOS, iOS and Linux apps — and the developer time and test devices they need.</p></div></div>
+      <div class="fund"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M2 12h20M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span><div><h4>Hosting &amp; infrastructure</h4><p>The domain, CI minutes for native builds, and a home for a public Docker image.</p></div></div>
+      <div class="fund"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4 12H2M22 12h-2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/><circle cx="12" cy="12" r="4"/></svg></span><div><h4>Time to keep it calm</h4><p>Most of all: the focused hours to keep Sempa thoughtful, rather than rushed.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FREE WAYS ══ -->
+<section>
+  <div class="wrap narrow center">
+    <h2 class="h2 reveal">Not the right time? That's okay.</h2>
+    <p class="lede reveal center" style="margin:18px auto 28px">Support isn't only money. A star, a good bug report, a word to a friend — all of it helps Sempa reach the people it can help.</p>
+    <div class="hero-cta reveal" style="justify-content:center">
+      <a class="btn btn-ghost btn-lg" href="https://github.com/moorew/sempa" target="_blank" rel="noopener">Star on GitHub</a>
+      <a class="btn btn-ghost btn-lg" href="contribute.html">Contribute</a>
+    </div>
+    <p class="pull reveal" style="margin-top:48px;border:0;padding:0">“A mind big enough to hold the day — without being overwhelmed by it.”</p>
+    <p class="dim reveal" style="font-size:14px">Thank you for helping keep that idea alive, and free.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html"><svg viewBox="0 0 100 100" fill="none"><path d="M22,40 a28,28 0 0 0 56,0" stroke="currentColor" stroke-width="9" stroke-linecap="round"/><circle cx="50" cy="35" r="7.5" fill="currentColor"/></svg>sempa</a>
+        <p class="tagline">A calm, self-hosted task manager. A mind vast enough to hold the day.</p>
+      </div>
+      <div class="fcol"><div class="fh">Product</div><a href="features.html">Features</a><a href="download.html">Download</a><a href="docs.html">Documentation</a></div>
+      <div class="fcol"><div class="fh">Project</div><a href="contribute.html">Contribute</a><a href="https://github.com/moorew/sempa" target="_blank" rel="noopener">GitHub</a><a href="donate.html">Donate</a><a href="sponsors.html">Sponsors</a></div>
+      <div class="fcol"><div class="fh">More</div><a href="open-source.html">Open source</a><a href="docs.html#self-hosting">Self-hosting</a><a href="https://github.com/moorew/sempa/releases" target="_blank" rel="noopener">Releases</a><a href="https://github.com/moorew/sempa/security/policy" target="_blank" rel="noopener">Security</a><a href="privacy.html">Privacy</a><a href="https://github.com/moorew/sempa/blob/main/LICENSE" target="_blank" rel="noopener">AGPL-3.0 license</a></div>
+    </div>
+    <div class="footer-base">
+      <span>© <span class="yr">2026</span> Sempa · AGPL-3.0 licensed · Made with care.</span>
+      <span class="tib-mini" lang="bo" title="Sempa Chenpo — a mind vast enough to hold the day">སེམས་དཔའ་ཆེན་པོ</span>
+    </div>
+  </div>
+</footer>
+<script>document.querySelectorAll('.yr').forEach(function(e){e.textContent=new Date().getFullYear();});</script>
+</body>
+</html>

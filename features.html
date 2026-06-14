@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="terracotta">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Features — Sempa</title>
+<meta name="description" content="Plan your day, hold your focus, close the evening, and pull in email, calendar and Jira — every feature of Sempa, the calm self-hosted task manager."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<script>(function(){try{var t=localStorage.getItem('sempa-site-theme')||'terracotta';var m=localStorage.getItem('sempa-site-mode')||'light';if(t==='oled')m='dark';document.documentElement.setAttribute('data-theme',t);if(m==='dark')document.documentElement.classList.add('dark');}catch(e){}})();</script>
+<link rel="stylesheet" href="assets/site.css"/>
+<script src="assets/site.js" defer></script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="index.html" aria-label="Sempa home">
+      <svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M22,40 a28,28 0 0 0 56,0" stroke="currentColor" stroke-width="9" stroke-linecap="round"/><circle cx="50" cy="35" r="7.5" fill="currentColor"/></svg>
+      sempa
+    </a>
+    <nav class="nav-links" id="nav-links">
+      <a href="features.html">Features</a>
+      <a href="download.html">Download</a>
+      <a href="docs.html">Docs</a>
+      <a href="contribute.html">Contribute</a>
+      <a href="donate.html">Donate</a>
+    </nav>
+    <div class="nav-right">
+      <div style="position:relative">
+        <button class="icon-btn" id="theme-trigger" aria-label="Change theme" title="Theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="12" r="2.5"/><circle cx="8.5" cy="7.5" r="2.5"/><circle cx="6.5" cy="13" r="2.5"/><path d="M12 22a10 10 0 1 1 0-20 8 8 0 0 1 8 8c0 2-1.5 3-3 3h-2a2 2 0 0 0-1.5 3.3A2 2 0 0 1 12 22Z"/></svg>
+        </button>
+        <div class="theme-pop" id="theme-pop"></div>
+      </div>
+      <a class="icon-btn donate-hide" href="https://github.com/moorew/sempa" target="_blank" rel="noopener" aria-label="GitHub repository" title="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5A10.5 10.5 0 0 0 1.5 12c0 4.64 3 8.57 7.18 9.96.53.1.72-.23.72-.5v-1.76c-2.92.63-3.54-1.4-3.54-1.4-.48-1.22-1.17-1.55-1.17-1.55-.95-.65.07-.64.07-.64 1.06.07 1.61 1.09 1.61 1.09.94 1.6 2.46 1.14 3.06.87.1-.68.37-1.14.67-1.4-2.33-.27-4.78-1.16-4.78-5.18 0-1.15.41-2.08 1.08-2.82-.11-.27-.47-1.34.1-2.79 0 0 .88-.28 2.88 1.07a10 10 0 0 1 5.24 0c2-1.35 2.88-1.07 2.88-1.07.57 1.45.21 2.52.1 2.79.67.74 1.08 1.67 1.08 2.82 0 4.03-2.46 4.91-4.8 5.17.38.33.71.97.71 1.96v2.9c0 .28.19.61.73.5A10.5 10.5 0 0 0 22.5 12 10.5 10.5 0 0 0 12 1.5Z"/></svg>
+      </a>
+      <a class="btn btn-primary donate-hide" href="donate.html" style="padding:9px 16px;font-size:14px">Support</a>
+      <button class="icon-btn nav-toggle" id="nav-toggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ══ PAGE HERO ══ -->
+<section style="padding-bottom:0">
+  <div class="wrap narrow center">
+    <p class="eyebrow reveal">Features</p>
+    <h1 class="h1 reveal" style="margin-top:16px">A whole day, held lightly.</h1>
+    <p class="lede reveal" style="margin:18px auto 0">Sempa is built around four calm rituals — plan, focus, reflect, connect — and a hundred small, well-made pieces that make them feel effortless. Here's what's inside.</p>
+  </div>
+</section>
+
+<!-- ══ PLAN ══ -->
+<section>
+  <div class="wrap">
+    <div class="feature-row">
+      <div class="ft-copy reveal">
+        <span class="eyebrow">Plan</span>
+        <h3>Start with intention, not a list.</h3>
+        <p><b>Plan Day</b> is a guided morning ritual: write your intention, see what carried over from yesterday, and pull tasks from your backlog into today.</p>
+        <p>The <b>Week</b> board is a Kanban across seven days — drag tasks between days and statuses, and set the handful of <b>Weekly Objectives</b> that actually matter.</p>
+        <ul class="checklist" style="margin-top:18px">
+          <li>Daily intention + carry-over from yesterday</li>
+          <li>Drag tasks across days and <b>backlog → planned → in progress → done</b></li>
+          <li>A single <b>Backlog</b> as your inbox of ideas</li>
+        </ul>
+      </div>
+      <div class="ft-stage reveal">
+        <div style="display:flex;flex-direction:column;gap:14px;width:100%;max-width:320px">
+          <div style="display:flex;align-items:center;gap:14px">
+            <div class="ui-today"><span class="dow">Mon</span><span class="pill">1</span></div>
+            <div class="ui-progress" style="flex:1">
+              <div class="pr-row"><span>Today</span><span class="d">4 of 6</span></div>
+              <div class="track"><i style="width:66%"></i></div>
+            </div>
+          </div>
+          <div class="ui-task">
+            <div class="row">
+              <span class="ui-check"></span>
+              <div style="flex:1"><div class="tt">Draft the launch note</div>
+                <div class="meta"><span class="tagdot"><i style="background:var(--cal-sage-fg)"></i>writing</span><span class="ui-sub">~45m</span></div></div>
+            </div>
+          </div>
+          <div class="ui-task">
+            <div class="row">
+              <span class="ui-check done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 6"/></svg></span>
+              <div style="flex:1"><div class="tt" style="color:var(--sempa-text-dim);text-decoration:line-through">Clear the inbox</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOCUS -->
+    <div class="feature-row flip">
+      <div class="ft-copy reveal">
+        <span class="eyebrow">Focus</span>
+        <h3>Protect the work that matters.</h3>
+        <p>Give a task a scheduled start and end and it appears as a <b>time-block</b> beside your calendar. Open it in <b>Focus mode</b> to work distraction-free with a built-in <b>Pomodoro</b>.</p>
+        <p>Completed sessions are logged per task, so you can see time actually spent against your estimate — gentle feedback, not surveillance.</p>
+        <ul class="checklist" style="margin-top:18px">
+          <li>Time-boxing onto the Schedule panel</li>
+          <li>Pomodoro with per-task session history</li>
+          <li>A soft <b>“roughly at”</b> hint when you don't want a hard block</li>
+        </ul>
+      </div>
+      <div class="ft-stage reveal">
+        <div style="display:flex;flex-direction:column;gap:14px;width:100%;max-width:260px">
+          <div class="ui-pomo"><div class="lbl">Focus · 25 min</div><div class="time">18:24</div><div class="bar"><i></i></div></div>
+          <div class="ui-cal-evt"><div class="t">Deep work · launch note</div><div class="h">14:00 – 15:00 · time-block</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- REFLECT -->
+    <div class="feature-row">
+      <div class="ft-copy reveal">
+        <span class="eyebrow">Reflect</span>
+        <h3>Close the day cleanly.</h3>
+        <p>The <b>Shutdown</b> ritual walks you through ticking off what's done, rescheduling what isn't, and recording a win. The <b>Weekly review</b> captures wins, challenges, and your next focus.</p>
+        <p>It all collects in the <b>Journal</b> — a quiet timeline of intentions and reflections you can search and revisit.</p>
+        <ul class="checklist" style="margin-top:18px">
+          <li>Guided end-of-day shutdown with reschedule</li>
+          <li>Weekly review: wins · challenges · next focus</li>
+          <li>Optional <b>contextual reflections</b> inline on day &amp; week screens</li>
+        </ul>
+      </div>
+      <div class="ft-stage reveal">
+        <div class="ui-task" style="max-width:300px">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--sempa-accent);margin-bottom:9px">Reflection · Today</div>
+          <div class="tt" style="font-size:16px;line-height:1.4">“Calmer when I planned the morning before opening email.”</div>
+          <div class="meta" style="margin-top:12px"><span class="evt-pill" style="background:var(--sempa-success-soft);color:var(--sempa-success)">✓ Win logged</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONNECT -->
+    <div class="feature-row flip">
+      <div class="ft-copy reveal">
+        <span class="eyebrow">Connect</span>
+        <h3>Your email and calendar, quietly pulled in.</h3>
+        <p>Star a Gmail or Fastmail message and it becomes a task. See Google, Fastmail, CalDAV and ICS calendar events beside your plan. Sync assigned <b>Jira</b> issues — marking one done closes the ticket.</p>
+        <p>Messy subject lines are tidied into clean task titles by a <b>local AI model</b> running on your own server — no email leaves your infrastructure and no API key is needed.</p>
+        <p>Per-task <b>reminders</b> fire by Web Push, native Android, or a webhook (ntfy, Gotify), with ten calm alert tones. Everything optional, configured after login.</p>
+        <ul class="checklist" style="margin-top:18px">
+          <li>Email → tasks (Gmail, Fastmail, forwarding inbox)</li>
+          <li><b>On-device AI</b> title cleanup — fully local, no third party</li>
+          <li>Calendars: Google · Fastmail · CalDAV · ICS feeds</li>
+          <li>Jira two-way sync · recurring task templates</li>
+        </ul>
+      </div>
+      <div class="ft-stage reveal">
+        <div style="display:flex;flex-direction:column;gap:13px;width:100%;max-width:300px">
+          <div class="ui-link"><div class="thumb"></div><div><div class="lt">Q3 planning doc</div><div class="ls">docs.google.com</div></div></div>
+          <div class="ui-reminder">
+            <span class="bell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span>
+            <div style="flex:1"><div class="rt">Reply to Sarah</div><div class="ui-sub" style="margin-top:2px">Remind me · 2:00 PM</div>
+              <div class="acts"><span>Mark done</span><span class="ghost">Snooze 1h</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WIDGETS -->
+    <div class="feature-row">
+      <div class="ft-copy reveal">
+        <span class="eyebrow">Widgets</span>
+        <h3>Your day, a glance away.</h3>
+        <p>Keep today in view without opening the app. A <b>floating desktop widget</b> stays quietly above your work — always on top, a small live list of what's next.</p>
+        <p>On Android, <b>home-screen widgets</b> come in three sizes and tick tasks off in place — no app launch required.</p>
+        <ul class="checklist" style="margin-top:18px">
+          <li><b>Floating desktop widget</b> — always-on-top, today at a glance</li>
+          <li><b>Android home-screen</b> — 2×2 progress · 4×2 task list · 4×4 week</li>
+          <li>Tap a task to complete it right from the widget</li>
+        </ul>
+      </div>
+      <div class="ft-stage reveal">
+        <div class="widget-stage">
+          <div class="wg" style="width:228px">
+            <div class="wg-head"><svg viewBox="0 0 100 100" fill="none"><path d="M22,40 a28,28 0 0 0 56,0" stroke="currentColor" stroke-width="9" stroke-linecap="round"/><circle cx="50" cy="35" r="7.5" fill="currentColor"/></svg><b>Today</b><span class="d">2/4</span></div>
+            <div class="wg-trk"><i></i></div>
+            <div class="wg-line done"><span class="b"></span><span>Review MBR deck</span></div>
+            <div class="wg-line"><span class="b"></span><span>Draft launch notes</span></div>
+            <div class="wg-line"><span class="b"></span><span>Sync with design</span></div>
+          </div>
+          <div class="wg wg-sm">
+            <svg viewBox="0 0 100 100" fill="none" style="width:20px;height:20px;color:var(--sempa-accent)"><path d="M22,40 a28,28 0 0 0 56,0" stroke="currentColor" stroke-width="9" stroke-linecap="round"/><circle cx="50" cy="35" r="7.5" fill="currentColor"/></svg>
+            <div class="big">2</div>
+            <div class="sub">done today</div>
+            <div class="rem">2 remaining</div>
+            <div style="flex:1"></div>
+            <div class="wg-trk" style="margin-bottom:0"><i></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SMALL PIECES (element gallery) ══ -->
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">The small pieces</span>
+      <h2 class="h2">Details you'll feel<br/>more than notice.</h2>
+      <p class="lede">Every component is drawn to be calm and legible — and they all re-skin instantly with your chosen theme.</p>
+    </div>
+    <div class="grid g-3 reveal">
+      <div class="card" style="display:flex;flex-direction:column;gap:14px"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></div><h3>Tasks &amp; sub-tasks</h3><p>Notes, due dates, time estimates, colour-coded tags, sub-task checklists and file attachments.</p>
+        <div style="margin-top:auto;display:flex;gap:7px;flex-wrap:wrap"><span class="tagdot"><i style="background:var(--cal-terracotta-fg)"></i>urgent</span><span class="tagdot"><i style="background:var(--cal-sage-fg)"></i>writing</span><span class="tagdot"><i style="background:var(--cal-amber-fg)"></i>admin</span></div>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;gap:14px"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></div><h3>Link previews</h3><p>Paste a URL into notes and it renders as a tidy chip — title, site and thumbnail — instead of a raw link.</p>
+        <div class="ui-link" style="margin-top:auto"><div class="thumb"></div><div><div class="lt">Design references</div><div class="ls">figma.com</div></div></div>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;gap:14px"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 4v4h-4"/></svg></div><h3>Local-first sync</h3><p>Work offline; changes queue and reconcile automatically. A quiet indicator tells you where things stand.</p>
+        <div style="margin-top:auto"><span class="ui-sync"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 4v4h-4"/></svg>All changes synced</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ KEYBOARD SHORTCUTS ══ -->
+<section>
+  <div class="wrap narrow">
+    <div class="sec-head reveal" style="margin-bottom:28px">
+      <span class="eyebrow" style="display:block;margin-bottom:14px">For the keyboard-driven</span>
+      <h2 class="h2">Move without the mouse.</h2>
+    </div>
+    <div class="grid g-2 reveal" style="gap:12px">
+      <div class="card" style="padding:16px 20px;display:flex;align-items:center;justify-content:space-between"><span class="muted">New task (day view)</span><kbd>n</kbd></div>
+      <div class="card" style="padding:16px 20px;display:flex;align-items:center;justify-content:space-between"><span class="muted">Edit hovered task</span><kbd>e</kbd></div>
+      <div class="card" style="padding:16px 20px;display:flex;align-items:center;justify-content:space-between"><span class="muted">Go to today</span><kbd>t</kbd></div>
+      <div class="card" style="padding:16px 20px;display:flex;align-items:center;justify-content:space-between"><span class="muted">Previous / next week</span><span style="display:flex;gap:6px"><kbd>j</kbd><kbd>k</kbd></span></div>
+      <div class="card" style="padding:16px 20px;display:flex;align-items:center;justify-content:space-between"><span class="muted">Show shortcuts</span><kbd>?</kbd></div>
+      <div class="card" style="padding:16px 20px;display:flex;align-items:center;justify-content:space-between"><span class="muted">Close dialog</span><kbd>Esc</kbd></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section class="band">
+  <div class="wrap center">
+    <h2 class="h2 reveal">See it in your own theme.</h2>
+    <p class="lede reveal center" style="margin:18px auto 30px;max-width:520px">Install Sempa on your server, or browse the docs to learn how each piece fits together.</p>
+    <div class="hero-cta reveal" style="justify-content:center">
+      <a class="btn btn-primary btn-lg" href="download.html">Download Sempa</a>
+      <a class="btn btn-ghost btn-lg" href="docs.html">Read the docs</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html"><svg viewBox="0 0 100 100" fill="none"><path d="M22,40 a28,28 0 0 0 56,0" stroke="currentColor" stroke-width="9" stroke-linecap="round"/><circle cx="50" cy="35" r="7.5" fill="currentColor"/></svg>sempa</a>
+        <p class="tagline">A calm, self-hosted task manager. A mind vast enough to hold the day.</p>
+      </div>
+      <div class="fcol"><div class="fh">Product</div><a href="features.html">Features</a><a href="download.html">Download</a><a href="docs.html">Documentation</a></div>
+      <div class="fcol"><div class="fh">Project</div><a href="contribute.html">Contribute</a><a href="https://github.com/moorew/sempa" target="_blank" rel="noopener">GitHub</a><a href="donate.html">Donate</a><a href="sponsors.html">Sponsors</a></div>
+      <div class="fcol"><div class="fh">More</div><a href="open-source.html">Open source</a><a href="docs.html#self-hosting">Self-hosting</a><a href="https://github.com/moorew/sempa/releases" target="_blank" rel="noopener">Releases</a><a href="https://github.com/moorew/sempa/security/policy" target="_blank" rel="noopener">Security</a><a href="privacy.html">Privacy</a><a href="https://github.com/moorew/sempa/blob/main/LICENSE" target="_blank" rel="noopener">AGPL-3.0 license</a></div>
+    </div>
+    <div class="footer-base">
+      <span>© <span class="yr">2026</span> Sempa · AGPL-3.0 licensed · Made with care.</span>
+      <span class="tib-mini" lang="bo" title="Sempa Chenpo — a mind vast enough to hold the day">སེམས་དཔའ་ཆེན་པོ</span>
+    </div>
+  </div>
+</footer>
+<script>document.querySelectorAll('.yr').forEach(function(e){e.textContent=new Date().getFullYear();});</script>
+</body>
+</html>
