@@ -68,17 +68,24 @@
         <a href="#tasks">Tasks</a>
         <a href="#plan">Plan your day</a>
         <a href="#week">Week &amp; objectives</a>
-        <a href="#reflect">Reflect</a>
+        <a href="#reflect">Shutdown &amp; journal</a>
+        <a href="#backlog">Backlog</a>
         <a href="#focus">Focus &amp; Pomodoro</a>
+        <a href="#search">Search &amp; filters</a>
         <a href="#recurring">Recurring tasks</a>
+        <a href="#today">Today board</a>
+        <a href="#widget">Desktop widget</a>
         <div class="toc-h">Connect</div>
         <a href="#calendars">Calendars</a>
         <a href="#email">Email → tasks</a>
         <a href="#jira">Jira</a>
-        <a href="#reminders">Reminders</a>
-        <div class="toc-h">Your data</div>
+        <a href="#reminders">Reminders &amp; routines</a>
+        <div class="toc-h">Your data &amp; app</div>
         <a href="#offline">Offline &amp; sync</a>
         <a href="#backup">Backup &amp; restore</a>
+        <a href="#appearance">Appearance &amp; themes</a>
+        <a href="#updates">Updates</a>
+        <a href="#settings">Settings</a>
         <a href="#shortcuts">Shortcuts</a>
         <div class="toc-h">Self-hosting</div>
         <a href="#self-hosting">Quick start</a>
@@ -92,62 +99,97 @@
         <p>After signing in, a short setup wizard helps you connect email and calendar — all optional, and addable later in <b>Settings</b>. You land on <b>Today</b>, ready to plan.</p>
 
         <h2 id="getting-around">Getting around</h2>
-        <p>On <b>desktop and web</b>, a left sidebar holds Today, Search, This Week, Plan Day, Email, Backlog, Reminders, Shutdown and Journal — with Settings and a theme toggle tucked into the footer.</p>
-        <p>On <b>mobile</b>, a bottom tab bar carries Today, Week, Journal and More (which opens the rest, grouped). A <b>+</b> button creates a task on list screens. To install the PWA, open your Sempa instance in a browser and choose “Install” / “Add to Home Screen”.</p>
+        <p>On <b>desktop and web</b>, a left sidebar pairs a pinned <b>Search</b> with a <b>sectioned nav rail</b>: Today and This Week up top, then <b>Rituals</b> (Plan Day, Shutdown), <b>Inbox</b> (Email, Reminders) and <b>Library</b> (Backlog, Journal). Change the grouping (<span class="mono">Spaces · Plan·Focus·Review · Flat</span>) and section style (Labels or Dividers) in <b>Settings → Appearance</b>. The rail footer holds a utility icon row (Settings, light/dark, desktop Widget), an update indicator when a new version is available, the sync status, and an account chip (avatar · email · Sign out).</p>
+        <p>The day view's right-hand panel is a tabbed dock — <b>Schedule · Inbox · Jira · Goals</b> — beneath a mini-calendar.</p>
+        <p>On <b>mobile</b>, a bottom tab bar carries <b>Today</b>, <b>Week</b>, <b>Journal</b> and <b>More</b>. The More sheet is grouped: a quick row (Settings, light/dark, Widget), a <b>Plan</b> group (Plan Day, Schedule, Backlog, Search), an <b>Inbox</b> group (Email, Reminders, Jira, Shutdown) and your account. A <b>+</b> button creates a task on list screens. To install the PWA, open your Sempa instance in a browser and choose “Install” / “Add to Home Screen”.</p>
 
         <h2 id="tasks">Tasks</h2>
         <p>The core unit. Open any task to edit it in a side panel (desktop) or bottom sheet (mobile).</p>
         <ul>
-          <li><b>Create</b> with the <b>+</b> button, the “Add task” box, or <kbd>n</kbd> on a day view.</li>
-          <li><b>Notes</b> support pasted URLs, which render as tidy link-preview chips.</li>
+          <li><b>Create</b> with the <b>+</b> button, the “Add task” box, or <kbd>n</kbd> on a day view; <kbd>e</kbd> edits the hovered task.</li>
+          <li><b>Notes</b> support pasted URLs, which render as tidy link-preview chips (title, site, thumbnail).</li>
           <li><b>Status</b> flows <span class="mono">backlog → planned → in progress → done</span> (plus cancelled) — drag between columns on the week board, or toggle the checkbox.</li>
-          <li><b>Due date &amp; estimate</b>, colour-coded <b>tags</b>, <b>sub-tasks</b>, file <b>attachments</b>, and <b>time-blocking</b> onto the schedule.</li>
+          <li><b>Due date &amp; estimate</b> (15 min – 8 h), colour-coded <b>tags</b>, <b>sub-tasks</b>, file <b>attachments</b>, and <b>time-blocking</b> onto the schedule.</li>
           <li>A soft <b>“roughly at”</b> hint orders a task in the day without a hard block.</li>
+          <li><b>Remind me</b> (date + time) sets a hard alert — see <a href="#reminders" style="color:var(--sempa-accent)">Reminders</a>.</li>
         </ul>
 
         <h2 id="plan">Plan your day</h2>
         <p><b>Plan Day</b> is a guided morning ritual: write your intention, see what carried over from yesterday, and pull tasks from your backlog into today. Your previous day's note is shown for continuity.</p>
 
         <h2 id="week">Week &amp; objectives</h2>
-        <p>The <b>Week</b> board is a Kanban across seven days — drag tasks between days and statuses. Set <b>Weekly Objectives</b> (the handful of outcomes that matter) and link tasks to them so progress is visible. Plan and review the week from dedicated screens, also surfaced as gentle in-app prompts.</p>
+        <p>The <b>Week</b> board is a Kanban across seven days — drag tasks between days and statuses. Set <b>Weekly Objectives</b> (the handful of outcomes that matter) and link tasks to them so progress is visible. Dedicated screens let you <b>plan the week</b> and run a <b>weekly review</b> — capturing <b>wins</b>, <b>challenges</b> and your <b>next focus</b> — and both surface as gentle in-app prompts.</p>
 
-        <h2 id="reflect">Reflect</h2>
-        <p><b>Shutdown</b> is an end-of-day ritual: tick off what's done, reschedule what isn't, record a win and an optional reflection. The <b>Weekly review</b> captures wins, challenges and your next focus. It all collects in the <b>Journal</b> — a searchable timeline of intentions and reflections. Optionally show reflections inline on day and week screens (Settings → Appearance).</p>
+        <h2 id="reflect">Shutdown &amp; journal</h2>
+        <p><b>Shutdown</b> is an end-of-day ritual: tick off what's done, reschedule what isn't, record a win and an optional reflection, and close the day cleanly. It all collects in the <b>Journal</b> — a searchable timeline of your daily intentions and reflections and your weekly wins, challenges and next focus. Optionally show reflections inline on day and week screens (Settings → Appearance → contextual reflections).</p>
+
+        <h2 id="backlog">Backlog</h2>
+        <p>A single list of everything not yet scheduled — your inbox of ideas. Pull items into days as you plan.</p>
 
         <h2 id="focus">Focus &amp; Pomodoro</h2>
         <p>Open a task in <b>Focus</b> mode to work distraction-free with a built-in <b>Pomodoro</b> timer. Completed sessions are logged per task, so you can see time spent against your estimate.</p>
 
+        <h2 id="search">Search &amp; filters</h2>
+        <p><b>Search</b> looks across tasks, objectives and journal entries. On list views, switch into <b>tag filter mode</b> to show only tasks with a given tag.</p>
+
         <h2 id="recurring">Recurring tasks</h2>
         <p>Create <b>daily, weekly or monthly</b> templates (Settings → Recurring Tasks). Instances generate automatically; editing one occurrence customises just that one while the series rolls forward.</p>
 
+        <h2 id="today">Today board</h2>
+        <p>The <b>Today</b> view is a rolling board of day columns with today anchored at the left edge. Scroll left into the past and right into the future <b>continuously</b> — no week boundaries to page through. The ‹ › header buttons and the <kbd>j</kbd> / <kbd>k</kbd> keys jump a week at a time; <b>Today</b> re-anchors on the current day.</p>
+
+        <h2 id="widget">Desktop widget</h2>
+        <p>The Windows desktop app includes a floating <b>Widget</b> — a compact, always-on-top panel showing what's up next, with quick checkboxes and a quick-add box. Open it from the sidebar icon rail or a single click on the system-tray icon (double-clicking the tray icon opens the main window).</p>
+
         <h2 id="calendars">Calendars &amp; schedule</h2>
-        <p>See events beside your tasks in the <b>Schedule</b> panel. Connect <b>Google</b> and <b>Fastmail</b> calendars, a <b>CalDAV</b> server, or subscribe to any <b>ICS / webcal</b> feed. In Settings → Calendars, show/hide each calendar and cycle its colour through the brand palette.</p>
+        <p>See events beside your tasks in the <b>Schedule</b> tab of the right-hand dock. Connect <b>Google</b> and <b>Fastmail</b> calendars, a <b>CalDAV</b> server (with optional push of your time-blocks back to it), or subscribe to any <b>ICS / webcal</b> feed. In Settings → Calendars, show/hide each calendar and cycle its colour through the brand palette.</p>
 
         <h2 id="email">Email → tasks</h2>
         <ul>
           <li><b>Gmail / Fastmail:</b> star an email and it imports as a task.</li>
           <li><b>Task inbox:</b> forward (or auto-forward) mail to a dedicated address to create tasks; allow-list senders.</li>
-          <li><b>AI title cleanup:</b> with an Anthropic API key set, imported subjects are tidied into clean task titles.</li>
+          <li><b>AI title cleanup:</b> imported subjects are tidied into clean task titles by a <b>local model</b> — the optional on-server <span class="mono">ollama</span> service running <span class="mono">qwen2.5:1.5b</span>. No API key, and nothing leaves your server. Opt in during <span class="mono">install.sh</span> or by setting <span class="mono">OLLAMA_BASE_URL</span>.</li>
         </ul>
+        <p>The <b>Email</b> screen lets you triage incoming mail and convert messages to tasks, with the original linked.</p>
 
         <h2 id="jira">Jira</h2>
         <p>Import your assigned issues as tasks. Marking a Jira-sourced task <b>done</b> transitions/closes the linked ticket. View issue details and available transitions from the task.</p>
 
-        <h2 id="reminders">Reminders &amp; notifications</h2>
-        <p>Set <b>Remind me</b> (date + time) on any task for a hard alert with <b>Mark done</b> and <b>Snooze 1h</b> actions. Choose delivery channels independently:</p>
+        <h2 id="reminders">Reminders, notifications &amp; routines</h2>
+        <p>Configured in <b>Settings → Notifications</b>. Set <b>Remind me</b> (date + time) on any task for a hard alert with <b>Mark done</b> and <b>Snooze 1h</b> actions; tapping it opens the task. Reminders are deduplicated, so re-arming or snoozing won't double-fire. Choose delivery channels independently:</p>
         <ul>
           <li><b>Web Push</b> — native notifications on Windows/Android browsers and installed PWAs.</li>
           <li><b>Native Android</b> — push to the installed app, with on-device alarms that fire even fully offline.</li>
-          <li><b>Custom webhook</b> — POST to ntfy, Gotify, or your own service.</li>
+          <li><b>Custom webhook</b> — POST to <b>ntfy</b>, <b>Gotify</b> or your own service (endpoint, optional topic, HTTP method, auth header), with a <b>Send test notification</b> button.</li>
         </ul>
-        <p>Pick from <b>10 calm alert tones</b>, and set the times for the in-app <b>weekly planning</b> and <b>daily shutdown</b> prompts.</p>
-        <div class="callout"><b>Will reminders fire if I'm offline?</b> Within reason — Android schedules on-device OS alarms locally, and a briefly-down server fires the reminder late rather than losing it. The Windows app needs to be running to fire.</div>
+        <p>Pick from <b>10 calm alert tones</b> (each with a ▶ preview), and set the times for the in-app <b>weekly planning</b> and <b>daily shutdown</b> routine prompts — calm in-app banners, not OS alarms.</p>
+        <div class="callout"><b>Will reminders fire if I'm offline?</b> Within reason — Android schedules on-device OS alarms locally, and a briefly-down server fires the reminder late rather than losing it. The Windows desktop app needs to be running to fire; settings changed offline sync on reconnect. A background web-push on a plain browser uses the OS default sound (a browser limitation).</div>
 
         <h2 id="offline">Offline &amp; sync</h2>
         <p>The desktop and Android apps are <b>local-first</b>: they keep a local copy of your data, so the app stays fully usable with no connection. Changes queue and sync automatically when the server is reachable; a sync indicator shows status. Plain web (in a browser, not installed) talks directly to the server.</p>
 
         <h2 id="backup">Backup &amp; restore</h2>
-        <p>In Settings → Backup &amp; Restore: <b>automatic daily backups</b> at an hour you choose, optional <b>encryption</b> with a passphrase, and destinations — keep them local or push to <b>S3</b>, <b>WebDAV</b> or <b>Google Drive</b>. Run one on demand, download the latest, or restore from a file. Migrations run automatically on startup.</p>
+        <p>In Settings → Backup &amp; Restore: <b>automatic daily backups</b> at an hour you choose with a retention count, optional <b>encryption</b> with a passphrase, and destinations — keep them local or push to <b>S3</b>, <b>WebDAV</b> or <b>Google Drive</b> (each with a <b>Test</b> button). Run one on demand, download the latest, or restore from a file. Migrations run automatically on startup; your data lives in the <span class="mono">sempa_data</span> Docker volume.</p>
+
+        <h2 id="appearance">Appearance &amp; themes</h2>
+        <p>In Settings → Appearance, choose from <b>six full-interface themes</b> — <b>Terracotta</b> (default), <b>Forest</b>, <b>Plum</b>, <b>Slate</b>, <b>OLED Black</b> and <b>Ocean</b> — each with a live preview. Every theme has a light and dark mode, except OLED Black, which is dark-only. The same page has a <b>text-size</b> slider, the <b>sidebar grouping</b> and <b>section style</b> controls for the desktop nav rail, and the <b>contextual reflections</b> toggle. Your choice is remembered per device and applied before first paint — no flash on load.</p>
+
+        <h2 id="updates">Updates</h2>
+        <p>Sempa checks GitHub for newer releases and surfaces them in-app: a subtle indicator in the nav rail, an update toast (<b>Download · What's new · Later</b>), and <b>Settings → About</b> — current version, update channel (Stable / Beta), an automatic-checks toggle, when it last checked, and a manual <b>Check for updates</b>. On web and desktop this points you to the installer. Optional silent background self-update for the desktop app is opt-in.</p>
+
+        <h2 id="settings">Settings overview</h2>
+        <table class="docs-table">
+          <tr><th>Section</th><th>What you configure</th></tr>
+          <tr><td>Account</td><td>Sign-in, profile</td></tr>
+          <tr><td>Integrations</td><td>Gmail, Fastmail, Jira, CalDAV, task inbox</td></tr>
+          <tr><td>Calendars</td><td>Connected calendars, ICS/webcal feeds, show/hide, colours</td></tr>
+          <tr><td>Tags</td><td>Create, rename, recolour tags</td></tr>
+          <tr><td>Recurring Tasks</td><td>Daily / weekly / monthly templates</td></tr>
+          <tr><td>Notifications</td><td>Reminders, delivery channels, sounds, routines</td></tr>
+          <tr><td>Backup &amp; Restore</td><td>Schedule, encryption, destinations</td></tr>
+          <tr><td>Appearance</td><td>Theme, light/dark, text size, sidebar grouping, contextual reflections</td></tr>
+          <tr><td>About</td><td>Version, update channel, automatic checks, “Check for updates”</td></tr>
+        </table>
 
         <h2 id="shortcuts">Keyboard shortcuts</h2>
         <table class="docs-table">
@@ -161,25 +203,27 @@
         </table>
 
         <h2 id="self-hosting">Self-hosting · quick start</h2>
-        <p>You need <b>Docker</b> and <b>Docker Compose (v2)</b>. The installer writes your config, builds the image and starts the container — about two minutes.</p>
+        <p>You need <b>Docker</b> and <b>Docker Compose (v2)</b>. The installer asks a few questions (URL, auth method, and optional extras like Tailscale, email-to-task and local AI), writes your config, builds the image and starts the container — about two minutes.</p>
         <div class="code"><span class="c"># Prerequisites: Docker + Docker Compose v2</span>
 git clone https://github.com/moorew/sempa.git
 cd sempa
 bash <span class="k">install.sh</span></div>
-        <p>Open the URL it prints and follow the in-app setup wizard to connect email and calendar. To upgrade: <span class="mono">git pull &amp;&amp; docker compose build &amp;&amp; docker compose up -d</span>. Your data lives in the <span class="mono">sempa_data</span> volume and is preserved across rebuilds.</p>
+        <p>Open the URL it prints and follow the setup wizard. Everything else — email, calendar and Jira accounts — is connected later in <b>Settings</b>. To upgrade: <span class="mono">git pull &amp;&amp; docker compose build &amp;&amp; docker compose up -d</span>. Your data lives in the <span class="mono">sempa_data</span> volume and is preserved across rebuilds.</p>
 
         <h2 id="tailscale">Self-hosting with Tailscale</h2>
         <p>Tailscale is the easiest way to reach Sempa securely from all your devices without exposing it to the public internet — no port forwarding, automatic HTTPS, and only your devices can connect.</p>
+        <div class="callout"><b>Your URL is the <span class="mono">sempa</span> node.</b> The bundled <span class="mono">ts-sempa</span> sidecar joins your tailnet as its own dedicated node named <span class="mono">sempa</span> — not the host's hostname. So your address is <span class="mono">https://sempa.&lt;tailnet&gt;.ts.net</span>, where <span class="mono">&lt;tailnet&gt;</span> is your MagicDNS name (e.g. <span class="mono">tail1234.ts.net</span>).</div>
         <ul>
-          <li>Install Tailscale on your server and devices.</li>
-          <li>Run <span class="mono">install.sh</span> and use your Tailscale machine name as the URL (e.g. <span class="mono">https://sempa.tail1234.ts.net</span>).</li>
-          <li>Paste a Tailscale auth key when asked so the bundled sidecar joins your tailnet; it handles HTTPS automatically.</li>
-          <li>In each app, enter your Tailscale URL in the Server field and sign in.</li>
+          <li><b>One-time tailnet setup:</b> enable <b>MagicDNS</b> and <b>HTTPS Certificates</b> in DNS settings, and add an ACL tag <span class="mono">tag:container</span> under <span class="mono">tagOwners</span> so the node never expires.</li>
+          <li><b>Install Tailscale</b> on every device you want to reach Sempa from. The server host doesn't need it — the sidecar container provides Tailscale.</li>
+          <li><b>Generate a tagged auth key</b> (with <span class="mono">tag:container</span>) and paste it when the installer asks for <span class="mono">TS_AUTHKEY</span>.</li>
+          <li><b>Run</b> <span class="mono">install.sh</span> and enter <span class="mono">https://sempa.&lt;tailnet&gt;.ts.net</span> as the App URL.</li>
+          <li><b>HTTPS is automatic</b> — the sidecar runs Tailscale Serve and provisions the cert; there's no manual <span class="mono">tailscale cert</span> step. Then enter that URL in each app's Server field and sign in.</li>
         </ul>
         <div class="callout"><b>Any reverse proxy works too.</b> Caddy, nginx or Traefik — set <span class="mono">APP_URL</span> and forward to port 9001. If you expose it publicly, enable authentication (Google OAuth or username/password).</div>
 
         <h2 id="config">Configuration</h2>
-        <p>Configuration lives in two local files: <span class="mono">.env</span> (URL, port — for Docker Compose substitution) and <span class="mono">.env.local</span> (secrets, loaded into the container).</p>
+        <p>Configuration lives in two local files: <span class="mono">.env</span> (URL, port — for Docker Compose substitution) and <span class="mono">.env.local</span> (secrets, loaded into the container). Authentication supports <b>Google Sign-In</b> (OAuth — the same client also powers Gmail import) and <b>username + password</b>; leaving the password unset disables auth entirely (fine for a trusted Tailscale-only install).</p>
         <table class="docs-table">
           <tr><th>Variable</th><th>Purpose</th></tr>
           <tr><td><span class="mono">APP_URL</span></td><td>Where Sempa is accessible (no trailing slash)</td></tr>
@@ -187,11 +231,14 @@ bash <span class="k">install.sh</span></div>
           <tr><td><span class="mono">SEMPA_ALLOWED_EMAILS</span></td><td>Comma-separated allow-list for Google sign-in</td></tr>
           <tr><td><span class="mono">SEMPA_USERNAME / _PASSWORD</span></td><td>Username + password auth (unset disables auth)</td></tr>
           <tr><td><span class="mono">TS_AUTHKEY</span></td><td>Auth key for the Tailscale sidecar</td></tr>
-          <tr><td><span class="mono">ANTHROPIC_API_KEY</span></td><td>Enables AI task-title cleanup on email import</td></tr>
+          <tr><td><span class="mono">OLLAMA_BASE_URL</span></td><td>Local model endpoint for AI title cleanup (empty = off)</td></tr>
+          <tr><td><span class="mono">OLLAMA_MODEL</span></td><td>Model for title cleanup (default <span class="mono">qwen2.5:1.5b</span>)</td></tr>
+          <tr><td><span class="mono">EMAIL_FORWARD_TOKEN</span> · <span class="mono">SMTP_ALLOWED_SENDERS</span></td><td>Email-to-task webhook token; sender allow-list</td></tr>
+          <tr><td><span class="mono">VAPID_SUBJECT</span> · <span class="mono">FCM_KEY_PATH</span></td><td>Web Push contact; Android push key</td></tr>
         </table>
-        <p>Authentication supports <b>Google Sign-In</b> (OAuth — the same client also powers Gmail import) and <b>username + password</b>. Full details, integration setup and all optional variables are in the <a href="https://github.com/moorew/sempa#configuration" target="_blank" rel="noopener" style="color:var(--sempa-accent)">repository README</a>.</p>
+        <p>Full details, integration setup and all optional variables are in the <a href="https://github.com/moorew/sempa#configuration" target="_blank" rel="noopener" style="color:var(--sempa-accent)">repository README</a>.</p>
 
-        <div class="callout" style="margin-top:32px"><b>Note:</b> this guide mirrors the current README. The canonical User Guide also lives in the repository — see the <a href="https://github.com/moorew/sempa/blob/main/README.md#user-guide" target="_blank" rel="noopener" style="color:var(--sempa-accent)">README User Guide</a>. As the dedicated installer and setup flow evolve, this page will be the canonical day-to-day reference, with the repo focused on building and deploying.</div>
+        <div class="callout" style="margin-top:32px"><b>Note:</b> this guide mirrors the project README. The canonical version lives in the repository — see the <a href="https://github.com/moorew/sempa/blob/main/README.md#user-guide" target="_blank" rel="noopener" style="color:var(--sempa-accent)">README User Guide</a>.</div>
       </div>
     </div>
   </div>
