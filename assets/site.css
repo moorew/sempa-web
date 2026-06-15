@@ -266,6 +266,8 @@ kbd{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--sempa
 
 /* ── Docs layout ─────────────────────────────────────────────────────── */
 .docs{display:grid;grid-template-columns:232px 1fr;gap:48px;align-items:start}
+.docs-body{min-width:0;overflow-wrap:break-word}
+.docs-body .mono,.docs-body kbd{overflow-wrap:anywhere}
 .docs-toc{position:sticky;top:90px;font-size:14px;display:flex;flex-direction:column;gap:3px;max-height:calc(100vh - 110px);overflow-y:auto;padding-right:12px;scrollbar-width:thin;scrollbar-color:var(--sempa-border) transparent}
 .docs-toc::-webkit-scrollbar{width:7px}
 .docs-toc::-webkit-scrollbar-thumb{background:var(--sempa-border);border-radius:4px}
@@ -283,6 +285,7 @@ kbd{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--sempa
 .docs-body ul li::before{content:"";position:absolute;left:3px;top:11px;width:5px;height:5px;border-radius:50%;background:var(--sempa-accent)}
 .docs-body b{color:var(--sempa-text)}
 .docs-table{width:100%;border-collapse:collapse;margin:8px 0 22px;font-size:14.5px}
+.docs-table th,.docs-table td{overflow-wrap:break-word;word-break:break-word}
 .docs-table th,.docs-table td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--sempa-border)}
 .docs-table th{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--sempa-text-dim);font-weight:500}
 .docs-table td{color:var(--sempa-text-soft)}
@@ -556,6 +559,11 @@ html:not(.has-reveal) .reveal{opacity:1;transform:none}
   .docs{grid-template-columns:1fr;gap:0}
   .docs-toc{display:none}
   .docs-search-hero{display:flex}
+  /* Fixed table layout so cells wrap instead of forcing horizontal overflow */
+  .docs-table{table-layout:fixed;font-size:13.5px}
+  .docs-table th,.docs-table td{padding:9px 10px}
+  /* Long shell commands scroll inside the block rather than widening the page */
+  .code{padding:15px 16px;font-size:12.5px}
 }
 @media(max-width:680px){
   body{font-size:16px}
