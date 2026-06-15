@@ -113,7 +113,7 @@ section{padding:clamp(64px,9vw,120px) 0}
 /* Live hero mockup tucks behind the next (grey) section instead of colliding with it */
 .hero-stage{position:relative;z-index:1;margin-top:clamp(48px,7vw,84px);margin-bottom:clamp(-140px,-9vw,-72px)}
 .tuck-under{position:relative;z-index:2}
-.philo.tuck-under{padding-top:clamp(150px,19vw,224px)}
+.philo.tuck-under{padding-top:clamp(80px,10vw,128px)}
 .hero-shot{margin-top:clamp(48px,7vw,84px);border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--sempa-border);
   box-shadow:var(--shadow-float)}
 .hero-shot img{width:100%}
@@ -220,6 +220,8 @@ section{padding:clamp(64px,9vw,120px) 0}
 
 /* ── CTA band ────────────────────────────────────────────────────────── */
 .band{background:var(--sempa-bg-panel);border-top:1px solid var(--sempa-border);border-bottom:1px solid var(--sempa-border)}
+/* The band's inner .wrap supplies all the vertical padding — zero the section rhythm so it isn't doubled (which left vast empty colored space) */
+section.band{padding-block:0}
 .band .wrap{padding-block:clamp(56px,7vw,88px)}
 
 /* ── Philosophy ──────────────────────────────────────────────────────── */
