@@ -526,8 +526,8 @@ kbd{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--sempa
 .ai-tg-h svg{width:13px;height:13px;color:var(--sempa-accent)}
 .ai-tg{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;font-size:14px;color:var(--sempa-text)}
 .ai-tg:hover{background:var(--sempa-accent-bg)}
-.ai-tg span{flex:1}
-.ai-sw{width:34px;height:20px;border-radius:11px;background:var(--sempa-border);position:relative;flex-shrink:0;transition:.2s}
+.ai-tg>span:first-child{flex:1}
+.ai-sw{flex:none;width:34px;height:20px;border-radius:11px;background:var(--sempa-border);position:relative;flex-shrink:0;transition:.2s}
 .ai-sw::after{content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;transition:.2s;box-shadow:0 1px 2px rgba(0,0,0,.2)}
 .ai-sw.on{background:var(--sempa-accent)}
 .ai-sw.on::after{left:16px}
