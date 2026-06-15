@@ -266,7 +266,10 @@ kbd{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--sempa
 
 /* ── Docs layout ─────────────────────────────────────────────────────── */
 .docs{display:grid;grid-template-columns:232px 1fr;gap:48px;align-items:start}
-.docs-toc{position:sticky;top:90px;font-size:14px;display:flex;flex-direction:column;gap:3px;max-height:calc(100vh - 110px);overflow:auto}
+.docs-toc{position:sticky;top:90px;font-size:14px;display:flex;flex-direction:column;gap:3px;max-height:calc(100vh - 110px);overflow-y:auto;padding-right:12px;scrollbar-width:thin;scrollbar-color:var(--sempa-border) transparent}
+.docs-toc::-webkit-scrollbar{width:7px}
+.docs-toc::-webkit-scrollbar-thumb{background:var(--sempa-border);border-radius:4px}
+.docs-toc::-webkit-scrollbar-track{background:transparent}
 .docs-toc .toc-h{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--sempa-text-dim);margin:16px 0 6px}
 .docs-toc a{color:var(--sempa-text-soft);padding:5px 11px;border-radius:8px;border-left:2px solid transparent}
 .docs-toc a:hover{color:var(--sempa-text);background:color-mix(in srgb,var(--sempa-text) 5%,transparent)}
@@ -285,6 +288,52 @@ kbd{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--sempa
 .docs-table td{color:var(--sempa-text-soft)}
 .callout{background:var(--sempa-accent-bg);border-radius:var(--r-md);padding:16px 20px;margin:18px 0;font-size:14.5px;color:var(--sempa-text)}
 .callout b{color:var(--sempa-accent)}
+.docs-body h2{scroll-margin-top:88px}
+.docs-body h2.docs-flash{animation:docs-flash 1.5s var(--ease)}
+@keyframes docs-flash{0%,28%{background:var(--sempa-accent-bg);box-shadow:0 0 0 6px var(--sempa-accent-bg)}100%{background:transparent;box-shadow:0 0 0 6px transparent}}
+
+/* ── Docs search ─────────────────────────────────────────────────────── */
+/* Compact trigger pinned at the top of the TOC (desktop) */
+.docs-search-trigger{display:flex;align-items:center;gap:8px;width:100%;margin-bottom:6px;padding:8px 11px;border-radius:9px;
+  background:var(--card-bg);border:1px solid var(--sempa-border);color:var(--sempa-text-soft);font:inherit;font-size:13px;
+  font-weight:500;cursor:pointer;transition:.15s;text-align:left}
+.docs-search-trigger:hover{border-color:var(--sempa-accent);color:var(--sempa-text)}
+.docs-search-trigger svg{width:15px;height:15px;flex-shrink:0;color:var(--sempa-text-dim)}
+.docs-search-trigger kbd{margin-left:auto;font-size:10px;padding:1px 5px}
+/* Wide bar in the page header (visible on every viewport — the mobile entry point) */
+.docs-search-hero{display:none;align-items:center;gap:11px;width:100%;max-width:520px;margin-top:26px;padding:13px 16px;
+  border-radius:var(--r-md);background:var(--card-bg);border:1px solid var(--sempa-border);color:var(--sempa-text-soft);
+  cursor:pointer;box-shadow:var(--shadow-card);transition:.15s;font:inherit;font-size:15.5px;font-weight:500;text-align:left}
+.docs-search-hero:hover{border-color:var(--sempa-accent)}
+.docs-search-hero svg{width:18px;height:18px;color:var(--sempa-text-dim);flex-shrink:0}
+.docs-search-hero kbd{margin-left:auto}
+
+/* Overlay palette */
+.docsearch{position:fixed;inset:0;z-index:100;display:flex;align-items:flex-start;justify-content:center;padding:13vh 20px 24px}
+.docsearch[hidden]{display:none}
+.docsearch-backdrop{position:absolute;inset:0;background:color-mix(in srgb,#000 38%,transparent);backdrop-filter:blur(3px);animation:ds-fade .15s var(--ease)}
+.docsearch-panel{position:relative;width:100%;max-width:600px;background:var(--card-bg);border:1px solid var(--sempa-border);
+  border-radius:var(--r-md);box-shadow:var(--shadow-float);overflow:hidden;display:flex;flex-direction:column;max-height:72vh;animation:ds-pop .18s var(--ease)}
+@keyframes ds-fade{from{opacity:0}to{opacity:1}}
+@keyframes ds-pop{from{opacity:0;transform:translateY(-10px) scale(.985)}to{opacity:1;transform:none}}
+.docsearch-input{display:flex;align-items:center;gap:11px;padding:15px 18px;border-bottom:1px solid var(--sempa-border)}
+.docsearch-input svg{width:19px;height:19px;color:var(--sempa-accent);flex-shrink:0}
+.docsearch-input input{flex:1;min-width:0;border:0;background:transparent;font:inherit;font-size:17px;color:var(--sempa-text);outline:none}
+.docsearch-input input::placeholder{color:var(--sempa-text-dim)}
+.docsearch-results{overflow-y:auto;padding:7px;flex:1}
+.ds-item{display:block;width:100%;text-align:left;background:transparent;border:0;border-radius:10px;padding:11px 13px;cursor:pointer;font:inherit;color:inherit}
+.ds-item+.ds-item{margin-top:2px}
+.ds-item.sel,.ds-item:hover{background:var(--sempa-accent-bg)}
+.ds-item .ds-cat{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--sempa-text-dim);margin-bottom:3px}
+.ds-item.sel .ds-cat{color:var(--sempa-accent)}
+.ds-item .ds-title{font-size:15px;font-weight:600;color:var(--sempa-text);line-height:1.3}
+.ds-item .ds-snip{font-size:13px;color:var(--sempa-text-soft);margin-top:3px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ds-item mark{background:color-mix(in srgb,var(--sempa-accent) 26%,transparent);color:inherit;border-radius:3px;padding:0 1px;font-weight:600}
+.ds-empty{padding:36px 20px;text-align:center;color:var(--sempa-text-dim);font-size:14.5px}
+.ds-empty b{color:var(--sempa-text-soft)}
+.docsearch-foot{display:flex;gap:18px;padding:10px 16px;border-top:1px solid var(--sempa-border);background:var(--sempa-bg-panel);font-size:11.5px;color:var(--sempa-text-dim);flex-wrap:wrap}
+.docsearch-foot span{display:inline-flex;align-items:center;gap:5px}
+.docsearch-foot kbd{font-size:10px;padding:1px 5px}
 
 /* ── Footer ──────────────────────────────────────────────────────────── */
 .footer{background:var(--sempa-bg-panel);border-top:1px solid var(--sempa-border);padding:64px 0 40px;font-size:14.5px}
@@ -438,6 +487,7 @@ html:not(.has-reveal) .reveal{opacity:1;transform:none}
   .footer-grid{grid-template-columns:1fr 1fr}
   .docs{grid-template-columns:1fr;gap:0}
   .docs-toc{display:none}
+  .docs-search-hero{display:flex}
 }
 @media(max-width:680px){
   body{font-size:16px}

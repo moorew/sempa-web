@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Documentation — Sempa</title>
-<meta name="description" content="How to use Sempa day to day, and how to self-host it — tasks, planning, focus, reflection, integrations, reminders, backup, and the Docker + Tailscale setup."/>
+<meta name="description" content="How to use Sempa day to day, and how to self-host it — tasks, planning, focus, reflection, local AI assist, integrations, reminders, backup, and the Docker + Tailscale setup."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
@@ -53,13 +53,23 @@
   <div class="wrap">
     <div class="sec-head reveal" style="margin-bottom:36px">
       <span class="eyebrow" style="display:block;margin-bottom:14px">Documentation</span>
-      <h1 class="h1">Everything, day to day.</h1>
+      <h1 class="h1">Make your day.</h1>
       <p class="lede">How to use Sempa and how to host it. The same on web, the Windows desktop app and Android, except where noted.</p>
+      <button class="docs-search-hero" id="docs-search-hero" type="button" aria-label="Search documentation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg>
+        <span>Search the docs…</span>
+        <kbd>/</kbd>
+      </button>
     </div>
 
     <div class="docs">
       <!-- TOC -->
       <aside class="docs-toc" id="toc">
+        <button class="docs-search-trigger" id="docs-search-trigger" type="button" aria-label="Search documentation">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg>
+          <span>Search docs</span>
+          <kbd>/</kbd>
+        </button>
         <div class="toc-h">Getting started</div>
         <a href="#first-run">First run</a>
         <a href="#getting-around">Getting around</a>
@@ -77,6 +87,7 @@
         <div class="toc-h">Connect</div>
         <a href="#calendars">Calendars</a>
         <a href="#email">Email → tasks</a>
+        <a href="#ai">AI assist</a>
         <a href="#jira">Jira</a>
         <a href="#reminders">Reminders &amp; routines</a>
         <div class="toc-h">Your data &amp; app</div>
@@ -147,9 +158,27 @@
         <ul>
           <li><b>Gmail / Fastmail:</b> star an email and it imports as a task.</li>
           <li><b>Task inbox:</b> forward (or auto-forward) mail to a dedicated address to create tasks; allow-list senders.</li>
-          <li><b>AI title cleanup:</b> imported subjects are tidied into clean task titles by a <b>local model</b> — the optional on-server <span class="mono">ollama</span> service running <span class="mono">qwen2.5:1.5b</span>. No API key, and nothing leaves your server. Opt in during <span class="mono">install.sh</span> or by setting <span class="mono">OLLAMA_BASE_URL</span>.</li>
+          <li><b>AI title cleanup:</b> imported subjects are tidied into clean task titles by your <b>local model</b> — no API key, and nothing leaves your server. It's part of the broader <a href="#ai" style="color:var(--sempa-accent)">AI assist</a> suite; opt in during <span class="mono">install.sh</span> or in <b>Settings &rarr; Integrations &rarr; AI</b>.</li>
         </ul>
         <p>The <b>Email</b> screen lets you triage incoming mail and convert messages to tasks, with the original linked.</p>
+
+        <h2 id="ai">AI assist &mdash; local &amp; private</h2>
+        <p>Sempa can use a small language model to take the friction out of capture and review. <b>Everything runs on a model you host yourself</b> (<span class="mono">Ollama</span>), on your own server — <b>no data is ever sent to any third party</b>, there's no API key, and there are no usage costs or rate limits. If the model is unavailable, every feature quietly falls back to the manual path; nothing breaks.</p>
+        <div class="callout"><b>You're in complete control.</b> AI is <b>off by default</b> and does nothing until you enable it — during <span class="mono">install.sh</span> (which installs Ollama, pulls the model and tests the connection) or in <b>Settings &rarr; Integrations &rarr; AI</b>. The model only ever <b>suggests</b>; nothing is automatic or destructive — you approve.</div>
+        <ul>
+          <li><b>Per-feature toggles</b> — each feature below has its own switch in <b>Settings &rarr; Integrations &rarr; AI &rarr; &ldquo;AI features&rdquo;</b>. Turn off any you don't want and it disappears from the app. Features only appear when the model is reachable.</li>
+          <li><b>Model management</b> — see your downloaded models and their on-disk sizes, switch the active model, <b>download a new model with a live progress bar</b>, or remove one to reclaim disk — all from Settings. The default is <span class="mono">qwen2.5:1.5b</span> (~1&nbsp;GB, CPU-friendly); browse alternatives on <span class="mono">ollama.com/library</span>.</li>
+        </ul>
+        <table class="docs-table">
+          <tr><th>Feature</th><th>Where</th><th>What it does</th></tr>
+          <tr><td><b>Natural-language quick add</b></td><td>&#10022; on a task title</td><td>Type &ldquo;lunch with Sam thu 1pm 30m #personal&rdquo; and it fills in the title, date, time, estimate and tags.</td></tr>
+          <tr><td><b>Suggest tags</b></td><td>&#10022; on the tag editor</td><td>Recommends tags <b>only from your existing tag set</b>, so your taxonomy stays consistent.</td></tr>
+          <tr><td><b>Break into subtasks</b></td><td>&#10022; on a task</td><td>Splits a task into a few concrete, ordered subtasks you can keep or edit.</td></tr>
+          <tr><td><b>Title cleanup &amp; summary</b></td><td>Email / Jira import</td><td>Tidies imported subjects and issues into concise, action-oriented titles with a rough estimate.</td></tr>
+          <tr><td><b>Plan my day</b></td><td>Plan Day</td><td>Suggests a focused order for today's tasks around your calendar events — applied only when you click.</td></tr>
+          <tr><td><b>Draft weekly review</b></td><td>Week Review</td><td>Drafts your wins / challenges / next focus from the week's completed tasks and objectives; you edit before saving.</td></tr>
+          <tr><td><b>Reflection prompts</b></td><td>Shutdown</td><td>Offers a couple of context-aware end-of-day questions based on what you did and didn't finish.</td></tr>
+        </table>
 
         <h2 id="jira">Jira</h2>
         <p>Import your assigned issues as tasks. Marking a Jira-sourced task <b>done</b> transitions/closes the linked ticket. View issue details and available transitions from the task.</p>
@@ -180,7 +209,7 @@
         <table class="docs-table">
           <tr><th>Section</th><th>What you configure</th></tr>
           <tr><td>Account</td><td>Sign-in, profile</td></tr>
-          <tr><td>Integrations</td><td>Gmail, Fastmail, Jira, CalDAV, task inbox</td></tr>
+          <tr><td>Integrations</td><td>Gmail, Fastmail, Jira, CalDAV, task inbox, and <b>AI</b> (local model: connection, model download/remove, per-feature toggles)</td></tr>
           <tr><td>Calendars</td><td>Connected calendars, ICS/webcal feeds, show/hide, colours</td></tr>
           <tr><td>Tags</td><td>Create, rename, recolour tags</td></tr>
           <tr><td>Recurring Tasks</td><td>Daily / weekly / monthly templates</td></tr>
@@ -253,6 +282,24 @@ bash <span class="k">install.sh</span></div>
   </div>
 </section>
 
+<!-- Docs search palette -->
+<div class="docsearch" id="docsearch" hidden>
+  <div class="docsearch-backdrop" data-ds-close="1"></div>
+  <div class="docsearch-panel" role="dialog" aria-modal="true" aria-label="Search documentation">
+    <div class="docsearch-input">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg>
+      <input type="text" id="docsearch-q" placeholder="Search the docs…" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Search query"/>
+      <kbd>Esc</kbd>
+    </div>
+    <div class="docsearch-results" id="docsearch-results"></div>
+    <div class="docsearch-foot">
+      <span><kbd>&uarr;</kbd><kbd>&darr;</kbd> navigate</span>
+      <span><kbd>&crarr;</kbd> open</span>
+      <span><kbd>esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
 <footer class="footer">
   <div class="wrap">
     <div class="footer-grid">
@@ -284,6 +331,140 @@ bash <span class="k">install.sh</span></div>
       links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+cur); });
     }
     window.addEventListener('scroll', spy, {passive:true}); spy();
+  })();
+
+  // Docs search palette
+  (function(){
+    var body=document.querySelector('.docs-body');
+    var overlay=document.getElementById('docsearch');
+    var input=document.getElementById('docsearch-q');
+    var resultsEl=document.getElementById('docsearch-results');
+    if(!body||!overlay||!input||!resultsEl) return;
+
+    // Map section id -> TOC category label
+    var cat={}, cur='Docs';
+    [].forEach.call(document.querySelectorAll('.docs-toc > *'), function(n){
+      if(n.classList&&n.classList.contains('toc-h')) cur=n.textContent.trim();
+      else if(n.tagName==='A'){ var id=(n.getAttribute('href')||'').slice(1); if(id) cat[id]=cur; }
+    });
+
+    // Build an index from the live DOM (auto-includes any new sections)
+    var index=[].map.call(body.querySelectorAll('h2[id]'), function(h){
+      var txt='', n=h.nextElementSibling;
+      while(n && n.tagName!=='H2'){ txt+=' '+(n.textContent||''); n=n.nextElementSibling; }
+      return { id:h.id, el:h, title:h.textContent.trim(), cat:cat[h.id]||'Docs',
+               text:txt.replace(/\s+/g,' ').trim() };
+    });
+
+    var sel=0, current=[];
+    function esc(s){ return s.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+    function tokens(q){ return q.toLowerCase().split(/\s+/).filter(Boolean); }
+
+    function highlight(str, toks){
+      var out=esc(str);
+      toks.forEach(function(t){
+        if(!t) return;
+        var re=new RegExp('('+t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','ig');
+        out=out.replace(re,'\u0001$1\u0002');
+      });
+      return out.split('\u0001').map(function(p){var i=p.indexOf('\u0002');return i<0?p:'<mark>'+p.slice(0,i)+'</mark>'+p.slice(i+1);}).join('');
+    }
+
+    function snippet(text, toks){
+      var low=text.toLowerCase(), pos=-1;
+      for(var i=0;i<toks.length;i++){ var p=low.indexOf(toks[i]); if(p>=0&&(pos<0||p<pos)) pos=p; }
+      if(pos<0) return text.slice(0,150);
+      var start=Math.max(0,pos-60), s=text.slice(start,start+170);
+      return (start>0?'\u2026':'')+s+(start+170<text.length?'\u2026':'');
+    }
+
+    function score(item, toks){
+      var t=item.title.toLowerCase(), x=item.text.toLowerCase(), s=0;
+      for(var i=0;i<toks.length;i++){
+        var tok=toks[i];
+        if(t.indexOf(tok)>=0) s+=10; else if(x.indexOf(tok)>=0) s+=3; else return -1;
+        if(t.indexOf(tok)===0) s+=4;
+      }
+      return s;
+    }
+
+    function render(q){
+      var toks=tokens(q);
+      if(!toks.length){
+        current=index.slice();
+        resultsEl.innerHTML=current.map(function(it,i){
+          return '<button class="ds-item'+(i===sel?' sel':'')+'" data-i="'+i+'">'+
+            '<div class="ds-cat">'+esc(it.cat)+'</div><div class="ds-title">'+esc(it.title)+'</div></button>';
+        }).join('');
+        return;
+      }
+      current=index.map(function(it){return {it:it,s:score(it,toks)};})
+        .filter(function(r){return r.s>=0;})
+        .sort(function(a,b){return b.s-a.s;})
+        .map(function(r){return r.it;});
+      sel=0;
+      if(!current.length){
+        resultsEl.innerHTML='<div class="ds-empty">No matches for <b>'+esc(q)+'</b>.</div>';
+        return;
+      }
+      resultsEl.innerHTML=current.map(function(it,i){
+        return '<button class="ds-item'+(i===sel?' sel':'')+'" data-i="'+i+'">'+
+          '<div class="ds-cat">'+esc(it.cat)+'</div>'+
+          '<div class="ds-title">'+highlight(it.title,toks)+'</div>'+
+          '<div class="ds-snip">'+highlight(snippet(it.text,toks),toks)+'</div></button>';
+      }).join('');
+    }
+
+    function setSel(i){
+      var items=resultsEl.querySelectorAll('.ds-item');
+      if(!items.length) return;
+      sel=(i+items.length)%items.length;
+      items.forEach(function(el,n){ el.classList.toggle('sel',n===sel); });
+      var el=items[sel]; if(el) el.scrollIntoView({block:'nearest'});
+    }
+
+    function go(i){
+      var it=current[i]; if(!it) return;
+      close();
+      var y=it.el.getBoundingClientRect().top+window.scrollY-84;
+      window.scrollTo({top:y,behavior:'smooth'});
+      it.el.classList.remove('docs-flash'); void it.el.offsetWidth; it.el.classList.add('docs-flash');
+      if(history.replaceState) history.replaceState(null,'','#'+it.id);
+    }
+
+    function open(){
+      overlay.hidden=false; document.body.style.overflow='hidden';
+      input.value=''; sel=0; render('');
+      setTimeout(function(){ input.focus(); },20);
+    }
+    function close(){ overlay.hidden=true; document.body.style.overflow=''; }
+
+    input.addEventListener('input', function(){ render(input.value); });
+    input.addEventListener('keydown', function(e){
+      if(e.key==='ArrowDown'){ e.preventDefault(); setSel(sel+1); }
+      else if(e.key==='ArrowUp'){ e.preventDefault(); setSel(sel-1); }
+      else if(e.key==='Enter'){ e.preventDefault(); go(sel); }
+    });
+    resultsEl.addEventListener('click', function(e){
+      var b=e.target.closest('.ds-item'); if(b) go(+b.getAttribute('data-i'));
+    });
+    resultsEl.addEventListener('mousemove', function(e){
+      var b=e.target.closest('.ds-item'); if(b) setSel(+b.getAttribute('data-i'));
+    });
+    overlay.addEventListener('click', function(e){ if(e.target.getAttribute('data-ds-close')) close(); });
+
+    var trig=document.getElementById('docs-search-trigger');
+    var hero=document.getElementById('docs-search-hero');
+    if(trig) trig.addEventListener('click', open);
+    if(hero) hero.addEventListener('click', open);
+
+    document.addEventListener('keydown', function(e){
+      if(!overlay.hidden && e.key==='Escape'){ e.preventDefault(); close(); return; }
+      var typing=/^(input|textarea|select)$/i.test((e.target.tagName||''))||e.target.isContentEditable;
+      if((e.key==='/'||((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k')) && !typing && overlay.hidden){
+        e.preventDefault(); open();
+      }
+    });
   })();
 </script>
 </body>
