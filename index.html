@@ -19,6 +19,21 @@
 </head>
 <body>
 
+<!-- ══ DEV BANNER ══ -->
+<aside class="dev-banner" id="dev-banner" role="region" aria-label="Project status" hidden>
+  <div class="dev-banner-in">
+    <span class="db-dot" aria-hidden="true"></span>
+    <p>Sempa is <b>under active development.</b> It's stable, but updates land often — make sure you have <b>backup enabled</b> so your data is always safe.</p>
+    <a class="db-btn" href="docs.html#active-development">
+      Learn more
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <button class="db-close" id="dev-banner-close" type="button" aria-label="Dismiss banner">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+</aside>
+
 <!-- ══ NAV ══ -->
 <header class="nav">
   <div class="nav-in">
@@ -529,6 +544,18 @@
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
+  // Dev banner — dismissable, persists in localStorage
+  (function(){
+    var b=document.getElementById('dev-banner'); if(!b) return;
+    var KEY='sempa-dev-banner-dismissed';
+    try{ if(localStorage.getItem(KEY)==='1') return; }catch(e){}
+    b.hidden=false;
+    var x=document.getElementById('dev-banner-close');
+    if(x) x.addEventListener('click',function(){
+      b.hidden=true;
+      try{ localStorage.setItem(KEY,'1'); }catch(e){}
+    });
+  })();
   // Home theme showcase cards (light previews; click re-skins the whole site)
   (function(){
     var P = {

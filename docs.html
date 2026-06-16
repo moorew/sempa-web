@@ -71,6 +71,7 @@
           <kbd>/</kbd>
         </button>
         <div class="toc-h">Getting started</div>
+        <a href="#active-development">Active development</a>
         <a href="#first-run">First run</a>
         <a href="#getting-around">Getting around</a>
         <div class="toc-h">Using Sempa</div>
@@ -78,6 +79,7 @@
         <a href="#plan">Plan your day</a>
         <a href="#week">Week &amp; objectives</a>
         <a href="#reflect">Shutdown &amp; journal</a>
+        <a href="#encouragement">Daily encouragement</a>
         <a href="#backlog">Backlog</a>
         <a href="#focus">Focus &amp; Pomodoro</a>
         <a href="#search">Search &amp; filters</a>
@@ -105,6 +107,20 @@
 
       <!-- BODY -->
       <div class="docs-body">
+        <h2 id="active-development">Active development &amp; backups</h2>
+        <p>Sempa is <b>under active development</b>. It's stable for everyday use — people run it as their daily task manager — but new features and fixes land often, and upgrading rebuilds the container. <b>Before you come to rely on it, turn on automatic backups.</b> They take about two minutes to set up and mean a bad upgrade, a disk failure, or a fat-fingered restore can never cost you your data.</p>
+        <div class="callout"><b>A Docker volume is not a backup.</b> Your data lives in the <span class="mono">sempa_data</span> volume and survives rebuilds — but that's one copy on one disk. Scheduled backups put a second copy somewhere your server isn't, which is what actually protects you.</div>
+        <h3>Enable automatic backups</h3>
+        <p>In the app, open <b>Settings &rarr; Backup &amp; Restore</b> and:</p>
+        <ul>
+          <li><b>Turn on automatic daily backups</b> and pick an hour (an idle time, e.g. overnight) and a <b>retention count</b> — how many past backups to keep.</li>
+          <li><b>Choose a destination.</b> Local is the default; for real safety add an off-server one — <b>S3</b>, <b>WebDAV</b>, or <b>Google Drive</b> — and hit <b>Test</b> to confirm the credentials work.</li>
+          <li><b>Optionally encrypt</b> with a passphrase. Store the passphrase somewhere safe — without it an encrypted backup can't be restored.</li>
+          <li><b>Run one now</b> to verify the whole path end to end, then <b>Download</b> the archive to keep an extra copy.</li>
+        </ul>
+        <p>To recover, return to the same screen and <b>Restore</b> from a backup file. Database migrations run automatically on startup, so a backup taken on an older version restores cleanly after you upgrade. Full options are in <a href="#backup" style="color:var(--sempa-accent)">Backup &amp; restore</a> below.</p>
+        <div class="callout"><b>Before every upgrade</b> (<span class="mono">git pull &amp;&amp; docker compose build &amp;&amp; docker compose up -d</span>), it's worth a quick <b>Run now</b> backup first — so if anything looks off afterwards, rolling back is trivial.</div>
+
         <h2 id="first-run">First run</h2>
         <p>After signing in, a short setup wizard helps you connect email and calendar — all optional, and addable later in <b>Settings</b>. You land on <b>Today</b>, ready to plan.</p>
 
@@ -122,16 +138,21 @@
           <li><b>Due date &amp; estimate</b> (15 min – 8 h), colour-coded <b>tags</b>, <b>sub-tasks</b>, file <b>attachments</b>, and <b>time-blocking</b> onto the schedule.</li>
           <li>A soft <b>“roughly at”</b> hint orders a task in the day without a hard block.</li>
           <li><b>Remind me</b> (date + time) sets a hard alert — see <a href="#reminders" style="color:var(--sempa-accent)">Reminders</a>.</li>
+          <li><b>Right-click menu (desktop):</b> right-click a task for quick actions (Edit · Complete · Focus · Delete), an objective for its actions, or empty board space for New task / Go to today / Search.</li>
+          <li><b>Undo delete:</b> deleting a task shows an <b>Undo</b> toast; non-Jira tasks are restored, and a deleted Jira task returns to the Jira list automatically.</li>
         </ul>
 
         <h2 id="plan">Plan your day</h2>
         <p><b>Plan Day</b> is a guided morning ritual: write your intention, see what carried over from yesterday, and pull tasks from your backlog into today. Your previous day's note is shown for continuity.</p>
 
         <h2 id="week">Week &amp; objectives</h2>
-        <p>The <b>Week</b> board is a Kanban across seven days — drag tasks between days and statuses. Set <b>Weekly Objectives</b> (the handful of outcomes that matter) and link tasks to them so progress is visible. Dedicated screens let you <b>plan the week</b> and run a <b>weekly review</b> — capturing <b>wins</b>, <b>challenges</b> and your <b>next focus</b> — and both surface as gentle in-app prompts.</p>
+        <p>The <b>Week</b> board is a Kanban across seven days — drag tasks between days and statuses. Set <b>Weekly Objectives</b> (the handful of outcomes that matter) and link tasks to them so progress is visible. <b>Drag an objective onto a day</b> to create a task already linked to it; completing an objective's linked task(s) <b>auto-completes the objective</b>. <b>Copy as Markdown</b> exports a clean, single-heading bulleted list. Dedicated screens let you <b>plan the week</b> and run a <b>weekly review</b> — capturing <b>wins</b>, <b>challenges</b> and your <b>next focus</b> — and both surface as gentle in-app prompts.</p>
 
         <h2 id="reflect">Shutdown &amp; journal</h2>
         <p><b>Shutdown</b> is an end-of-day ritual: tick off what's done, reschedule what isn't, record a win and an optional reflection, and close the day cleanly. It all collects in the <b>Journal</b> — a searchable timeline of your daily intentions and reflections and your weekly wins, challenges and next focus. Optionally show reflections inline on day and week screens (Settings → Appearance → contextual reflections).</p>
+
+        <h2 id="encouragement">Daily encouragement</h2>
+        <p>A quiet, rotating quote appears on the day view — stable through the day — for a little personality. It's subtle by design; turn it off or edit the list (add, remove, reset) in <b>Settings &rarr; Account</b>.</p>
 
         <h2 id="backlog">Backlog</h2>
         <p>A single list of everything not yet scheduled — your inbox of ideas. Pull items into days as you plan.</p>
@@ -140,7 +161,7 @@
         <p>Open a task in <b>Focus</b> mode to work distraction-free with a built-in <b>Pomodoro</b> timer. Completed sessions are logged per task, so you can see time spent against your estimate.</p>
 
         <h2 id="search">Search &amp; filters</h2>
-        <p><b>Search</b> looks across tasks, objectives and journal entries. On list views, switch into <b>tag filter mode</b> to show only tasks with a given tag.</p>
+        <p><b>Search</b> looks across tasks, objectives and journal entries. On list views, switch into <b>tag filter mode</b> to show only tasks with a given tag. When filtering by a tag, <b>export</b> the resulting list as <b>CSV</b> or clean <b>Markdown</b> from the Search page.</p>
 
         <h2 id="recurring">Recurring tasks</h2>
         <p>Create <b>daily, weekly or monthly</b> templates (Settings → Recurring Tasks). Instances generate automatically; editing one occurrence customises just that one while the series rolls forward.</p>
@@ -152,7 +173,13 @@
         <p>The Windows desktop app includes a floating <b>Widget</b> — a compact, always-on-top panel showing what's up next, with quick checkboxes and a quick-add box. Open it from the sidebar icon rail or a single click on the system-tray icon (double-clicking the tray icon opens the main window).</p>
 
         <h2 id="calendars">Calendars &amp; schedule</h2>
-        <p>See events beside your tasks in the <b>Schedule</b> tab of the right-hand dock. Connect <b>Google</b> and <b>Fastmail</b> calendars, a <b>CalDAV</b> server (with optional push of your time-blocks back to it), or subscribe to any <b>ICS / webcal</b> feed. In Settings → Calendars, show/hide each calendar and cycle its colour through the brand palette.</p>
+        <p>See events beside your tasks in the <b>Schedule</b> tab of the right-hand dock. Connect <b>Google</b> and <b>Fastmail</b> calendars, a <b>CalDAV</b> server (with optional push of your time-blocks back to it), or subscribe to any <b>ICS / webcal</b> feed.</p>
+        <ul>
+          <li><b>Time-block by dragging</b> a task onto the timeline — it moves into that day and snaps to the task's planned time (its estimate, or a 30-minute default); list edits reflect live on the block.</li>
+          <li><b>Resize</b> a block's top or bottom edge to change its length, which updates the task's planned time.</li>
+          <li><b>Per-calendar colours</b> are assigned automatically — including each individual Fastmail calendar (Family, personal, shared…) — and blocks show the source calendar name so feeds stay distinguishable.</li>
+          <li>In the schedule's <b>Calendars</b> panel (and <b>Settings &rarr; Calendars</b> for feeds) <b>show/hide</b> each calendar and tap its colour dot to recolour it. All calendars are listed, even ones with no events that day.</li>
+        </ul>
 
         <h2 id="email">Email → tasks</h2>
         <ul>
@@ -167,7 +194,7 @@
         <div class="callout"><b>You're in complete control.</b> AI is <b>off by default</b> and does nothing until you enable it — during <span class="mono">install.sh</span> (which installs Ollama, pulls the model and tests the connection) or in <b>Settings &rarr; Integrations &rarr; AI</b>. The model only ever <b>suggests</b>; nothing is automatic or destructive — you approve.</div>
         <ul>
           <li><b>Per-feature toggles</b> — each feature below has its own switch in <b>Settings &rarr; Integrations &rarr; AI &rarr; &ldquo;AI features&rdquo;</b>. Turn off any you don't want and it disappears from the app. Features only appear when the model is reachable.</li>
-          <li><b>Model management</b> — see your downloaded models and their on-disk sizes, switch the active model, <b>download a new model with a live progress bar</b>, or remove one to reclaim disk — all from Settings. The default is <span class="mono">qwen2.5:1.5b</span> (~1&nbsp;GB, CPU-friendly); browse alternatives on <span class="mono">ollama.com/library</span>.</li>
+          <li><b>Model management</b> — see your downloaded models and their on-disk sizes, switch the active model, <b>download a new model with a live progress bar</b>, or remove one to reclaim disk — all from Settings. The default is <span class="mono">qwen2.5:1.5b</span> (~1&nbsp;GB, CPU-friendly); browse alternatives on <span class="mono">ollama.com/library</span>. Use any <b>chat/instruct</b> model. If one errors with <i>“does not support generate/chat”</i>, its local copy is stale from an Ollama upgrade — re-pull it (<span class="mono">ollama pull &lt;model&gt;</span>) or remove and re-download in Settings.</li>
         </ul>
         <table class="docs-table">
           <tr><th>Feature</th><th>Where</th><th>What it does</th></tr>
@@ -181,7 +208,13 @@
         </table>
 
         <h2 id="jira">Jira</h2>
-        <p>Import your assigned issues as tasks. Marking a Jira-sourced task <b>done</b> transitions/closes the linked ticket. View issue details and available transitions from the task.</p>
+        <p>Connect Jira to import your assigned issues as tasks — full guide in <a href="https://github.com/moorew/sempa/blob/main/docs/JIRA.md" target="_blank" rel="noopener" style="color:var(--sempa-accent)">docs/JIRA.md</a>. In brief:</p>
+        <ul>
+          <li><b>Rich import:</b> issues sync with a link to the ticket and the description copied into the task notes (offline-readable); re-sync keeps title, status and metadata current.</li>
+          <li><b>Manage from the task:</b> a live Jira section shows status, type, priority, assignee, labels, an “Open in Jira” link, and the issue's real workflow <b>transitions as buttons</b>. Marking a Jira task <b>done</b> also transitions the ticket.</li>
+          <li><b>Multi-select filters + default view:</b> filter the Jira panel by any combination of Priority / Type / Status / Epic / Sprint; your chosen filters and scope save as your default, with a Reset.</li>
+          <li><b>Delete returns it to Jira:</b> deleting a Jira-linked task re-imports it, so it goes back to the Jira list rather than disappearing.</li>
+        </ul>
 
         <h2 id="reminders">Reminders, notifications &amp; routines</h2>
         <p>Configured in <b>Settings → Notifications</b>. Set <b>Remind me</b> (date + time) on any task for a hard alert with <b>Mark done</b> and <b>Snooze 1h</b> actions; tapping it opens the task. Reminders are deduplicated, so re-arming or snoozing won't double-fire. Choose delivery channels independently:</p>
@@ -263,6 +296,10 @@ bash <span class="k">install.sh</span></div>
           <tr><td><span class="mono">OLLAMA_MODEL</span></td><td>Model for title cleanup (default <span class="mono">qwen2.5:1.5b</span>)</td></tr>
           <tr><td><span class="mono">EMAIL_FORWARD_TOKEN</span> · <span class="mono">SMTP_ALLOWED_SENDERS</span></td><td>Email-to-task webhook token; sender allow-list</td></tr>
           <tr><td><span class="mono">VAPID_SUBJECT</span> · <span class="mono">FCM_KEY_PATH</span></td><td>Web Push contact; Android push key</td></tr>
+          <tr><td><span class="mono">SMTP_PORT</span></td><td>Port for the built-in inbound SMTP server (default 2525)</td></tr>
+          <tr><td><span class="mono">COMPOSE_PROFILES</span></td><td>Set to <span class="mono">ai</span> to start the optional <span class="mono">ollama</span> service (written automatically when you choose local AI)</td></tr>
+          <tr><td><span class="mono">INBOX_POLL_INTERVAL</span></td><td>How often to poll the email inbox (default 1m)</td></tr>
+          <tr><td><span class="mono">CALENDAR_POLL_INTERVAL</span></td><td>How often to refresh ICS feeds + the Fastmail calendar (default 15m; empty disables)</td></tr>
         </table>
         <p>Full details, integration setup and all optional variables are in the <a href="https://github.com/moorew/sempa#configuration" target="_blank" rel="noopener" style="color:var(--sempa-accent)">repository README</a>.</p>
 
