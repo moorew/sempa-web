@@ -30,6 +30,7 @@
       <a href="download.html">Download</a>
       <a href="docs.html">Docs</a>
       <a href="contribute.html">Contribute</a>
+      <a href="security.html">Security</a>
     </nav>
     <div class="nav-right">
       <div style="position:relative">
@@ -97,6 +98,7 @@
         <a href="#backup">Backup &amp; restore</a>
         <a href="#appearance">Appearance &amp; themes</a>
         <a href="#updates">Updates</a>
+        <a href="#security">Security</a>
         <a href="#settings">Settings</a>
         <a href="#shortcuts">Shortcuts</a>
         <div class="toc-h">Self-hosting</div>
@@ -238,6 +240,12 @@
         <h2 id="updates">Updates</h2>
         <p>Sempa checks GitHub for newer releases and surfaces them in-app: a subtle indicator in the nav rail, an update toast (<b>Download · What's new · Later</b>), and <b>Settings → About</b> — current version, update channel (Stable / Beta), an automatic-checks toggle, when it last checked, and a manual <b>Check for updates</b>. On web and desktop this points you to the installer. Optional silent background self-update for the desktop app is opt-in.</p>
 
+        <h2 id="security">Security</h2>
+        <p>Sempa is built to be safe to run yourself. It's free and open source under the <b>AGPL-3.0</b>, so anyone can read exactly what it does, and it follows the <b>OpenSSF Best Practices</b> standard (passing) — a recognised checklist for how securely an open-source project is run.</p>
+        <p>Every change is checked automatically before it ships: <b>CodeQL</b> scans the code, <b>govulncheck</b> and <b>Trivy</b> watch for known vulnerabilities in dependencies (the build fails on serious ones), and <b>gitleaks</b> guards against committed secrets. Dependencies are kept current by <b>Dependabot</b>, the full test suite runs on every change, and the main branch is protected so code only lands through reviewed pull requests.</p>
+        <p>For your own setup, two steps do most of the work: reach Sempa over <a href="#tailscale" style="color:var(--sempa-accent)">Tailscale</a> so nothing is exposed to the public internet, and turn on <a href="#backup" style="color:var(--sempa-accent)">encrypted backups</a>. The plain-language <a href="security.html" style="color:var(--sempa-accent)">Security overview</a> covers the rest, and the full <a href="https://www.bestpractices.dev/projects/13228" target="_blank" rel="noopener" style="color:var(--sempa-accent)">OpenSSF assessment</a> and <a href="https://github.com/moorew/sempa/blob/main/SECURITY.md" target="_blank" rel="noopener" style="color:var(--sempa-accent)">SECURITY.md</a> document every criterion and scan.</p>
+        <div class="callout"><b>Found a vulnerability?</b> Please report it privately via GitHub's <a href="https://github.com/moorew/sempa/security/advisories/new" target="_blank" rel="noopener" style="color:var(--sempa-accent)">security advisories</a> rather than a public issue, so it can be fixed before details are made public.</div>
+
         <h2 id="settings">Settings overview</h2>
         <table class="docs-table">
           <tr><th>Section</th><th>What you configure</th></tr>
@@ -346,7 +354,7 @@ bash <span class="k">install.sh</span></div>
       </div>
       <div class="fcol"><div class="fh">Product</div><a href="features.html">Features</a><a href="download.html">Download</a><a href="docs.html">Documentation</a></div>
       <div class="fcol"><div class="fh">Project</div><a href="contribute.html">Contribute</a><a href="https://github.com/moorew/sempa" target="_blank" rel="noopener">GitHub</a><a href="donate.html">Donate</a><a href="sponsors.html">Sponsors</a></div>
-      <div class="fcol"><div class="fh">More</div><a href="open-source.html">Open source</a><a href="docs.html#self-hosting">Self-hosting</a><a href="https://github.com/moorew/sempa/releases" target="_blank" rel="noopener">Releases</a><a href="https://github.com/moorew/sempa/security/policy" target="_blank" rel="noopener">Security</a><a href="privacy.html">Privacy</a><a href="https://github.com/moorew/sempa/blob/main/LICENSE" target="_blank" rel="noopener">AGPL-3.0 license</a></div>
+      <div class="fcol"><div class="fh">More</div><a href="open-source.html">Open source</a><a href="docs.html#self-hosting">Self-hosting</a><a href="https://github.com/moorew/sempa/releases" target="_blank" rel="noopener">Releases</a><a href="security.html">Security</a><a href="privacy.html">Privacy</a><a href="https://github.com/moorew/sempa/blob/main/LICENSE" target="_blank" rel="noopener">AGPL-3.0 license</a></div>
     </div>
     <div class="footer-base">
       <span>© <span class="yr">2026</span> Sempa · AGPL-3.0 licensed · Made with care.</span>

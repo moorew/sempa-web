@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="terracotta">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Security — Sempa</title>
+<meta name="description" content="How Sempa keeps your data safe: self-hosted by design, open source and auditable, an OpenSSF Best Practices passing badge, continuous automated scanning, and private vulnerability reporting."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<script>(function(){try{var t=localStorage.getItem('sempa-site-theme')||'terracotta';var m=localStorage.getItem('sempa-site-mode')||'light';if(t==='oled')m='dark';document.documentElement.setAttribute('data-theme',t);if(m==='dark')document.documentElement.classList.add('dark');}catch(e){}})();</script>
+<link rel="icon" href="/favicon.ico?v=2" sizes="any"/>
+<link rel="icon" href="/assets/favicon.svg?v=2" type="image/svg+xml"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png?v=2"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png?v=2"/>
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"/>
+<link rel="stylesheet" href="assets/site.css"/>
+<script src="assets/site.js" defer></script>
+<style>
+  /* Badge row under the hero */
+  .badge-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;align-items:center;margin-top:28px}
+  .badge-row a{display:inline-flex;align-items:center;padding:7px 10px;background:var(--card-bg);border:1px solid var(--card-border);
+    border-radius:10px;box-shadow:var(--shadow-card);transition:transform .15s var(--ease),border-color .2s}
+  .badge-row a:hover{transform:translateY(-2px);border-color:var(--sempa-accent)}
+  .badge-row img{height:20px;display:block}
+
+  /* Reassurance cards */
+  .safe-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:900px){.safe-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.safe-grid{grid-template-columns:1fr}}
+
+  /* Certification spotlight */
+  .cert{display:grid;grid-template-columns:300px 1fr;gap:0;border:1px solid var(--sempa-border);border-radius:var(--r-lg);
+    overflow:hidden;background:var(--card-bg);box-shadow:var(--shadow-card)}
+  @media(max-width:780px){.cert{grid-template-columns:1fr}}
+  .cert .badge-side{background:var(--sempa-accent-bg);padding:clamp(28px,3.6vw,44px);display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:18px;text-align:center}
+  @media(max-width:780px){.cert .badge-side{border-bottom:1px solid var(--sempa-border)}}
+  .cert .seal{width:74px;height:74px;border-radius:50%;background:var(--card-bg);border:1px solid var(--sempa-border);
+    display:flex;align-items:center;justify-content:center;color:var(--sempa-success);box-shadow:var(--shadow-card)}
+  .cert .seal svg{width:36px;height:36px}
+  .cert .badge-side .live{display:inline-flex;align-items:center;padding:8px 11px;background:var(--card-bg);
+    border:1px solid var(--card-border);border-radius:10px;box-shadow:var(--shadow-card)}
+  .cert .badge-side .live img{height:20px;display:block}
+  .cert .badge-side .lvl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sempa-success);font-weight:600}
+  .cert .body{padding:clamp(28px,3.6vw,44px)}
+  .cert .body h2{font-size:clamp(23px,2.6vw,30px);margin-bottom:14px}
+  .cert .body p{font-size:16px;color:var(--sempa-text-soft);line-height:1.6;margin-bottom:18px}
+  .cert .meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin:0 0 22px;padding:0;list-style:none}
+  .cert .meta li{display:flex;align-items:center;gap:9px;font-size:14.5px;color:var(--sempa-text-soft)}
+  .cert .meta li::before{display:none}
+  .cert .meta svg{width:17px;height:17px;color:var(--sempa-success);flex-shrink:0}
+
+  /* "For the curious" checks */
+  .checks{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:8px}
+  @media(max-width:680px){.checks{grid-template-columns:1fr}}
+  .check{display:flex;gap:13px;align-items:flex-start;padding:18px 20px;background:var(--card-bg);
+    border:1px solid var(--card-border);border-radius:var(--r-md);box-shadow:var(--shadow-card)}
+  .check .ci{width:38px;height:38px;border-radius:10px;background:var(--sempa-accent-bg);color:var(--sempa-accent);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .check .ci svg{width:19px;height:19px}
+  .check h4{font-size:15.5px;margin-bottom:4px}
+  .check p{font-size:13.5px;color:var(--sempa-text-soft);line-height:1.5}
+
+  /* Reporting card (shared pattern) */
+  .sec-card{display:grid;grid-template-columns:1.1fr 1fr;gap:0;border:1px solid var(--sempa-border);border-radius:var(--r-lg);
+    overflow:hidden;background:var(--card-bg);box-shadow:var(--shadow-card)}
+  @media(max-width:760px){.sec-card{grid-template-columns:1fr}}
+  .sec-card .body{padding:clamp(28px,3.4vw,40px)}
+  .sec-card .body h2{font-size:clamp(24px,2.8vw,30px);margin-bottom:14px}
+  .sec-card .body p{font-size:16px;color:var(--sempa-text-soft);line-height:1.6;margin-bottom:16px}
+  .sec-card .side{background:var(--sempa-bg-panel);border-left:1px solid var(--sempa-border);padding:clamp(28px,3.4vw,40px);
+    display:flex;flex-direction:column;gap:12px;justify-content:center}
+  @media(max-width:760px){.sec-card .side{border-left:0;border-top:1px solid var(--sempa-border)}}
+  .sec-card .warn{display:flex;gap:10px;align-items:flex-start;background:color-mix(in srgb,var(--sempa-amber) 13%,transparent);
+    border:1px solid color-mix(in srgb,var(--sempa-amber) 45%,transparent);border-radius:var(--r-md);padding:13px 15px;
+    font-size:14px;color:var(--sempa-text);line-height:1.5}
+  .sec-card .warn svg{width:19px;height:19px;color:var(--sempa-amber);flex-shrink:0;margin-top:1px}
+  .lic-badge{display:inline-flex;align-items:center;gap:9px;padding:8px 15px;border-radius:var(--r-md);
+    background:var(--sempa-accent-bg);color:var(--sempa-accent);font-weight:600;font-size:15px}
+  .lic-badge svg{width:18px;height:18px}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="index.html" aria-label="Sempa home">
+      <svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M22,40 a28,28 0 0 0 56,0" stroke="currentColor" stroke-width="9" stroke-linecap="round"/><circle cx="50" cy="35" r="7.5" fill="currentColor"/></svg>
+      sempa
+    </a>
+    <nav class="nav-links" id="nav-links">
+      <a href="features.html">Features</a>
+      <a href="download.html">Download</a>
+      <a href="docs.html">Docs</a>
+      <a href="contribute.html">Contribute</a>
+      <a href="security.html">Security</a>
+    </nav>
+    <div class="nav-right">
+      <div style="position:relative">
+        <button class="icon-btn" id="theme-trigger" aria-label="Change theme" title="Theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="12" r="2.5"/><circle cx="8.5" cy="7.5" r="2.5"/><circle cx="6.5" cy="13" r="2.5"/><path d="M12 22a10 10 0 1 1 0-20 8 8 0 0 1 8 8c0 2-1.5 3-3 3h-2a2 2 0 0 0-1.5 3.3A2 2 0 0 1 12 22Z"/></svg>
+        </button>
+        <div class="theme-pop" id="theme-pop"></div>
+      </div>
+      <a class="icon-btn donate-hide" href="https://github.com/moorew/sempa" target="_blank" rel="noopener" aria-label="GitHub repository" title="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5A10.5 10.5 0 0 0 1.5 12c0 4.64 3 8.57 7.18 9.96.53.1.72-.23.72-.5v-1.76c-2.92.63-3.54-1.4-3.54-1.4-.48-1.22-1.17-1.55-1.17-1.55-.95-.65.07-.64.07-.64 1.06.07 1.61 1.09 1.61 1.09.94 1.6 2.46 1.14 3.06.87.1-.68.37-1.14.67-1.4-2.33-.27-4.78-1.16-4.78-5.18 0-1.15.41-2.08 1.08-2.82-.11-.27-.47-1.34.1-2.79 0 0 .88-.28 2.88 1.07a10 10 0 0 1 5.24 0c2-1.35 2.88-1.07 2.88-1.07.57 1.45.21 2.52.1 2.79.67.74 1.08 1.67 1.08 2.82 0 4.03-2.46 4.91-4.8 5.17.38.33.71.97.71 1.96v2.9c0 .28.19.61.73.5A10.5 10.5 0 0 0 22.5 12 10.5 10.5 0 0 0 12 1.5Z"/></svg>
+      </a>
+      <a class="btn btn-primary donate-hide" href="donate.html" style="padding:9px 16px;font-size:14px">Donate</a>
+      <button class="icon-btn nav-toggle" id="nav-toggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ══ HERO ══ -->
+<section style="padding-bottom:0">
+  <div class="wrap narrow center">
+    <p class="eyebrow reveal">Security</p>
+    <h1 class="h1 reveal" style="margin-top:16px">Your data, kept safe — and provably so.</h1>
+    <p class="lede reveal" style="margin:18px auto 0">Sempa runs entirely on a server you own, and there's no Sempa cloud to trust. The whole codebase is open for anyone to read, the project follows a recognised open-source security standard, and every change is scanned and reviewed before it ships. Here's what that means for you.</p>
+    <div class="badge-row reveal">
+      <a href="https://www.bestpractices.dev/projects/13228" target="_blank" rel="noopener" aria-label="OpenSSF Best Practices badge — passing">
+        <img src="https://www.bestpractices.dev/projects/13228/badge" alt="OpenSSF Best Practices passing"/>
+      </a>
+      <a href="https://github.com/moorew/sempa/blob/main/LICENSE" target="_blank" rel="noopener" aria-label="AGPL-3.0 licensed">
+        <img src="https://img.shields.io/badge/License-AGPL%20v3-blue.svg" alt="License: AGPL v3"/>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHAT THIS MEANS FOR YOU ══ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">For everyone</span>
+      <h2 class="h2">Six reasons your day is in safe hands.</h2>
+      <p class="lede">No jargon required — just the plain reasons Sempa is built to be trustworthy.</p>
+    </div>
+    <div class="safe-grid reveal">
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M2 20h20M8 11h.01M12 11h4"/></svg></div>
+        <h3>It lives on your server</h3>
+        <p>Sempa is self-hosted — your tasks, notes, email and calendar stay on infrastructure you control. There's no central service collecting your data, because there's no central service at all.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/><path d="M14 18h6"/></svg></div>
+        <h3>Open to inspection</h3>
+        <p>Every line of Sempa is public under the AGPL-3.0 licence. You don't have to take our word that it's safe — you, or anyone you trust, can read exactly what it does.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.4 7.6 8 9 4.6-1.4 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>Independently assessed</h3>
+        <p>Sempa has earned the <b>OpenSSF Best Practices</b> badge — a recognised checklist for how safely an open-source project is run, from code review to vulnerability handling.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+        <h3>Private network access</h3>
+        <p>Pair Sempa with Tailscale and only your own devices can reach your server — no ports left open to the public internet, with real HTTPS handled for you.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/><path d="M21 3v4h-4" transform="translate(-9 0)"/></svg></div>
+        <h3>Encrypted, automatic backups</h3>
+        <p>Schedule daily backups — kept local or pushed off-server — and optionally protect them with a passphrase, so a bad upgrade or a failed disk can never cost you your data.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><path d="m4 4 16 16"/></svg></div>
+        <h3>Nothing is watching you</h3>
+        <p>No ads, no trackers, no analytics, no telemetry. Even the optional AI assist runs on a model on your own server — nothing ever leaves it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CERTIFICATION SPOTLIGHT ══ -->
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-bottom:32px">
+      <span class="eyebrow">The certification</span>
+      <h2 class="h2">OpenSSF Best Practices — passing.</h2>
+    </div>
+    <div class="cert reveal">
+      <div class="badge-side">
+        <span class="seal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 7.6 8 9 4.6-1.4 8-4 8-9V5l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+        <a class="live" href="https://www.bestpractices.dev/projects/13228" target="_blank" rel="noopener" aria-label="View the OpenSSF Best Practices badge">
+          <img src="https://www.bestpractices.dev/projects/13228/badge" alt="OpenSSF Best Practices passing"/>
+        </a>
+        <span class="lvl">Passing level · 100%</span>
+      </div>
+      <div class="body">
+        <h2>A trusted, independent standard.</h2>
+        <p>The <b>OpenSSF Best Practices</b> programme, run by the Linux Foundation's Open Source Security Foundation, is a public checklist of the things well-run open-source projects do to stay secure. Earning the badge means an independent set of criteria has been met and documented — and the assessment is open for anyone to read.</p>
+        <ul class="meta">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Clear reporting of and response to vulnerabilities</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Reviewed changes &amp; protected releases</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Automated tests on every change</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Encrypted delivery &amp; secure development</li>
+        </ul>
+        <div class="hero-cta" style="margin-top:0">
+          <a class="btn btn-primary" href="https://www.bestpractices.dev/projects/13228" target="_blank" rel="noopener">See the full assessment</a>
+          <a class="btn btn-ghost" href="https://scorecard.dev/viewer/?uri=github.com/moorew/sempa" target="_blank" rel="noopener">OpenSSF Scorecard</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOR THE CURIOUS ══ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">For the curious</span>
+      <h2 class="h2">Checked on every change.</h2>
+      <p class="lede">You don't need any of this to use Sempa safely — but if you like to look under the hood, here's what runs automatically before code ever reaches you.</p>
+    </div>
+    <div class="checks reveal">
+      <div class="check">
+        <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4M6 8l-4 4 4 4M14.5 4l-5 16"/></svg></span>
+        <div><h4>Code scanning</h4><p>CodeQL inspects the backend and frontend for security flaws on every push and pull request.</p></div>
+      </div>
+      <div class="check">
+        <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5"/></svg></span>
+        <div><h4>Dependency checks</h4><p>govulncheck and Trivy watch for known vulnerabilities in everything Sempa builds on, and fail the build on serious ones.</p></div>
+      </div>
+      <div class="check">
+        <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>
+        <div><h4>Secret scanning</h4><p>gitleaks and push protection make sure passwords and keys never slip into the codebase.</p></div>
+      </div>
+      <div class="check">
+        <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 4v4h-4"/></svg></span>
+        <div><h4>Up-to-date dependencies</h4><p>Dependabot opens weekly update requests, so the building blocks stay current and patched.</p></div>
+      </div>
+      <div class="check">
+        <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V6a3 3 0 0 1 6 0v5"/><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M12 15v2"/></svg></span>
+        <div><h4>Tested &amp; reviewed</h4><p>The full test suite runs on every change, and the main branch is protected — code lands only through reviewed pull requests.</p></div>
+      </div>
+      <div class="check">
+        <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5Z"/><path d="M13 3v5h5M8 14h8M8 17h6"/></svg></span>
+        <div><h4>Findings, in the open</h4><p>Every scan result and any accepted trade-off is documented publicly in the repository's Security tab and <span class="mono">SECURITY.md</span>.</p></div>
+      </div>
+    </div>
+    <div class="center reveal" style="margin-top:34px">
+      <a class="btn btn-ghost btn-lg" href="https://github.com/moorew/sempa/blob/main/SECURITY.md" target="_blank" rel="noopener">Read the full Security Policy →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ REPORTING ══ -->
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-bottom:32px">
+      <span class="eyebrow">Found something?</span>
+      <h2 class="h2">Reporting a vulnerability.</h2>
+    </div>
+    <div class="sec-card reveal">
+      <div class="body">
+        <h2>Report it privately, please.</h2>
+        <p>If you believe you've found a security issue in Sempa, please report it through GitHub's private vulnerability reporting. That lets the maintainers assess and fix it before any details are made public — protecting everyone who self-hosts Sempa.</p>
+        <div class="hero-cta" style="margin-top:6px">
+          <a class="btn btn-primary" href="https://github.com/moorew/sempa/security/advisories/new" target="_blank" rel="noopener">Report privately on GitHub</a>
+          <a class="btn btn-ghost" href="https://github.com/moorew/sempa/blob/main/SECURITY.md" target="_blank" rel="noopener">Read the Security Policy</a>
+        </div>
+      </div>
+      <div class="side">
+        <div class="warn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4m0 4h.01M10.3 3.9 2 18a2 2 0 0 0 1.7 3h16.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
+          <span><b>Please don't open a public issue</b> for a security vulnerability — a public report exposes users before a fix is available.</span>
+        </div>
+        <p class="dim" style="font-size:13.5px;line-height:1.55">Private reports route straight to the maintainer via a GitHub Security Advisory. Non-security bugs and feature requests belong in <a href="https://github.com/moorew/sempa/issues" target="_blank" rel="noopener" style="color:var(--sempa-accent)">regular issues</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DIVE DEEPER ══ -->
+<section>
+  <div class="wrap center">
+    <h2 class="h2 reveal">Want to dig deeper?</h2>
+    <p class="lede reveal center" style="margin:18px auto 30px;max-width:560px">Everything is in the open. Read the policy, browse the scan results, or read the code itself.</p>
+    <div class="hero-cta reveal" style="justify-content:center">
+      <a class="btn btn-primary btn-lg" href="https://github.com/moorew/sempa/blob/main/SECURITY.md" target="_blank" rel="noopener">Security Policy</a>
+      <a class="btn btn-ghost btn-lg" href="https://github.com/moorew/sempa/security/code-scanning" target="_blank" rel="noopener">Code scanning</a>
+      <a class="btn btn-ghost btn-lg" href="https://github.com/moorew/sempa" target="_blank" rel="noopener">Source on GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html"><svg viewBox="0 0 100 100" fill="none"><path d="M22,40 a28,28 0 0 0 56,0" stroke="currentColor" stroke-width="9" stroke-linecap="round"/><circle cx="50" cy="35" r="7.5" fill="currentColor"/></svg>sempa</a>
+        <p class="tagline">A calm, self-hosted task manager. A mind vast enough to hold the day.</p>
+      </div>
+      <div class="fcol"><div class="fh">Product</div><a href="features.html">Features</a><a href="download.html">Download</a><a href="docs.html">Documentation</a></div>
+      <div class="fcol"><div class="fh">Project</div><a href="contribute.html">Contribute</a><a href="https://github.com/moorew/sempa" target="_blank" rel="noopener">GitHub</a><a href="donate.html">Donate</a><a href="sponsors.html">Sponsors</a></div>
+      <div class="fcol"><div class="fh">More</div><a href="open-source.html">Open source</a><a href="docs.html#self-hosting">Self-hosting</a><a href="https://github.com/moorew/sempa/releases" target="_blank" rel="noopener">Releases</a><a href="security.html">Security</a><a href="privacy.html">Privacy</a><a href="https://github.com/moorew/sempa/blob/main/LICENSE" target="_blank" rel="noopener">AGPL-3.0 license</a></div>
+    </div>
+    <div class="footer-base">
+      <span>© <span class="yr">2026</span> Sempa · AGPL-3.0 licensed · Made with care.</span>
+      <span class="made-ca"><svg class="maple" viewBox="0 0 630.80101 892.13877" aria-hidden="true"><g transform="translate(-225.97627,-261.21204)"><path d="m 541.37727,261.21204 -54.548,99.275 c -5.274,9.495 -16.917,13.434 -26.909,9.09 l -46.183,-19.637 25.577,163.639 c 1.366,8.938 -9.362,14.39 -15.879,8.123 l -72.244,-70.184 -11.031,32.364 c -4.097,11.916 -16.744,18.799 -28.971,15.759 l -72.121,-18.061 20.606,100.122 c 2.358,11.482 -3.747,23.048 -14.546,27.517 l -19.152,7.757 141.215,124.851 c 10.179,9.061 14.617,22.841 11.637,36.121 l -8.242,37.214 133.699,-17.577 c 13.343,-1.738 25.159,8.84 24.848,22.183 l -3.392,155.155 15.636,0 15.635,0 -3.392,-155.155 c -0.248,-13.405 11.568,-23.983 24.848,-22.183 l 133.578,17.577 -8.242,-37.214 c -2.855,-13.218 1.7,-27.06 11.878,-36.121 l 141.095,-124.851 -37.698,-15.516 24.607,-120.002 -93.701,23.516 -18.302,-53.456 -72.243,70.184 c -6.456,6.329 -17.244,0.815 -15.88,-8.123 l 25.575,-163.639 -46.181,19.637 c -10.054,4.282 -21.697,0.405 -26.91,-9.09 l -54.667,-99.275 z"></path></g></svg><span class="mc-txt">Made with <svg class="heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg> in Ontario, Canada</span></span>
+      <span class="tib-mini" lang="bo" title="Sempa Chenpo — a mind vast enough to hold the day">སེམས་དཔའ་ཆེན་པོ</span>
+    </div>
+  </div>
+</footer>
+<script>document.querySelectorAll('.yr').forEach(function(e){e.textContent=new Date().getFullYear();});</script>
+</body>
+</html>
