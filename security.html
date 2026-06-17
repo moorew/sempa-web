@@ -237,6 +237,14 @@
         <div><h4>Tested &amp; reviewed</h4><p>The full test suite runs on every change, and the main branch is protected — code lands only through reviewed pull requests.</p></div>
       </div>
       <div class="check">
+        <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></span>
+        <div><h4>Fuzzed &amp; race-tested</h4><p>The parsers that read untrusted input — calendar feeds, imported email, AI output — are continuously fuzzed, and tests run under Go's race detector.</p></div>
+      </div>
+      <div class="check">
+        <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17v5"/><path d="M9 10.8V4h6v6.8l2 3.2H7l2-3.2Z"/></svg></span>
+        <div><h4>Pinned build pipeline</h4><p>Every step that builds and ships Sempa is pinned to an exact version, so the release pipeline can't be quietly swapped from under it.</p></div>
+      </div>
+      <div class="check">
         <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5Z"/><path d="M13 3v5h5M8 14h8M8 17h6"/></svg></span>
         <div><h4>Findings, in the open</h4><p>Every scan result and any accepted trade-off is documented publicly in the repository's Security tab and <span class="mono">SECURITY.md</span>.</p></div>
       </div>
