@@ -101,16 +101,17 @@
 git clone https://github.com/moorew/sempa.git
 cd sempa
 bash <span class="k">install.sh</span>
-<span class="c"># Answer a few questions — URL, auth,</span>
-<span class="c"># optional keys — and you're live.</span></div>
+<span class="c"># …or pull the prebuilt image instead:</span>
+docker pull <span class="k">ghcr.io/moorew/sempa</span></div>
       <div class="plat" style="justify-content:flex-start">
         <div class="top">
           <span class="glyph"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 10h3v3H3v-3Zm3.5 0h3v3h-3v-3Zm3.5 0h3v3h-3v-3Zm3.5 0h3v3h-3v-3ZM6.5 6.5h3v3h-3v-3Zm3.5 0h3v3h-3v-3Zm3.5 0h3v3h-3v-3ZM21 11c-.4-.3-1.4-.4-2.1-.2-.1-.7-.5-1.3-1.1-1.8l-.4-.3-.3.4c-.4.5-.5 1.3-.4 1.9 0 .3.2.7.4 1-.3.2-.9.4-1.6.4H2c-.1 1.4.2 3 .9 4.2C3.9 18 5.6 18.8 8 18.8c5 0 8.8-2.3 10.6-6.5 1 0 1.9-.3 2.4-1.1l.3-.4-.3-.3Z"/></svg></span>
           <div><h3>Docker server</h3><div class="ver">Docker + Compose · ~10 MB</div></div>
         </div>
-        <p class="muted" style="font-size:14px">Works behind any reverse proxy, and best paired with Tailscale to reach it privately from anywhere — no ports open to the internet.</p>
+        <p class="muted" style="font-size:14px">Build from source or pull the prebuilt multi-arch image from GHCR — it runs as a non-root container. Works behind any reverse proxy, and best paired with Tailscale to reach it privately from anywhere — no ports open to the internet.</p>
         <div class="links">
           <a class="dl-row" href="docs.html#self-hosting"><span>Self-hosting guide →</span></a>
+          <a class="dl-row" href="https://github.com/moorew/sempa/pkgs/container/sempa" target="_blank" rel="noopener"><span>Prebuilt image on GHCR →</span></a>
           <a class="dl-row" href="docs.html#tailscale"><span>Set up with Tailscale →</span></a>
         </div>
       </div>
@@ -165,6 +166,11 @@ bash <span class="k">install.sh</span>
         </div>
       </div>
     </div>
+
+    <p class="reveal" style="display:flex;gap:9px;align-items:flex-start;margin-top:22px;font-size:13.5px;color:var(--sempa-text-soft);line-height:1.55">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="width:17px;height:17px;color:var(--sempa-accent);flex-shrink:0;margin-top:1px"><path d="M12 3 4 6v6c0 5 3.4 7.6 8 9 4.6-1.4 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+      <span><b style="color:var(--sempa-text)">Every release download is signed</b> with <b>cosign</b> (Sigstore, keyless) — each file ships a <span class="mono" style="font-size:12px">.cosign.sig</span> + <span class="mono" style="font-size:12px">.cosign.pem</span> you can check with <a href="https://github.com/moorew/sempa#verifying-release-downloads" target="_blank" rel="noopener" style="color:var(--sempa-accent)"><span class="mono" style="font-size:12px">cosign verify-blob</span></a>.</span>
+    </p>
 
     <!-- older versions -->
     <details class="older reveal" style="margin-top:24px">
