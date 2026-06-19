@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Download — Sempa</title>
-<meta name="description" content="Download Sempa for Windows and Android, install the server with Docker, or add the PWA. Always the latest release, straight from GitHub."/>
+<meta name="description" content="Download Sempa for Windows, Linux and Android, install the server with Docker, or add the PWA. Always the latest release, straight from GitHub."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
@@ -120,7 +120,7 @@ docker pull <span class="k">ghcr.io/moorew/sempa</span></div>
     <!-- STEP 2 · Apps -->
     <div class="flowstep reveal" style="margin-top:52px"><span class="fn">2</span><h2 class="h2" style="margin:0">Get the apps</h2><span class="fmeta donate-hide">Point each app at<br/>your server URL</span></div>
     <p class="lede reveal" style="margin:6px 0 22px;max-width:640px">Install a client, enter your server address, and sign in. Every app is local-first — it keeps working offline and syncs the moment your server is reachable again.</p>
-    <div class="grid g-3 reveal">
+    <div class="grid g-2 reveal">
 
       <!-- Windows -->
       <div class="plat">
@@ -134,6 +134,21 @@ docker pull <span class="k">ghcr.io/moorew/sempa</span></div>
           <div data-optional><a class="dl-row dl-link disabled" id="dl-win-arm" href="#"><span>Download for ARM64<span class="rec">For your device</span></span><span class="sz" data-size>.msi</span></a></div>
           <p class="arch-hint" id="arch-hint"></p>
           <p class="signing-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4m0 4h.01M10.3 3.9 2 18a2 2 0 0 0 1.7 3h16.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg><span><b>Not code-signed yet.</b> Windows may show a SmartScreen warning the first time — choose <b>More info → Run anyway</b>. Proper signing is in progress, and verified builds are always on <a href="https://github.com/moorew/sempa/releases" target="_blank" rel="noopener" style="color:var(--sempa-accent)">GitHub Releases</a>.</span></p>
+        </div>
+      </div>
+
+      <!-- Linux -->
+      <div class="plat">
+        <div class="top">
+          <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-2 3-2 5 0 8s2 5 0 8"/><circle cx="12" cy="12" r="9"/></svg></span>
+          <div><h3>Linux</h3><div class="ver">.AppImage · .deb · .rpm · x86_64 &amp; ARM64</div></div>
+        </div>
+        <p class="muted" style="font-size:14px">The desktop app (Tauri) — the same floating widget, tray and reminders as Windows. The AppImage is portable and self-updates; <span class="mono" style="font-size:12px">.deb</span> / <span class="mono" style="font-size:12px">.rpm</span> install system-wide.</p>
+        <div class="links">
+          <a class="dl-row dl-rec dl-link disabled" id="dl-linux-appimage" href="#"><span>AppImage<span class="rec">Recommended</span></span><span class="sz" data-size>.AppImage</span></a>
+          <a class="dl-row dl-link disabled" id="dl-linux-deb" href="#"><span>Debian · Ubuntu · Mint</span><span class="sz" data-size>.deb</span></a>
+          <a class="dl-row dl-link disabled" id="dl-linux-rpm" href="#"><span>Fedora · RHEL · openSUSE</span><span class="sz" data-size>.rpm</span></a>
+          <p class="dim" style="font-size:12.5px">Arch (AUR <span class="mono" style="font-size:12px">sempa-bin</span>) and Flatpak / Flathub are on the way.</p>
         </div>
       </div>
 
@@ -188,10 +203,9 @@ docker pull <span class="k">ghcr.io/moorew/sempa</span></div>
       <h2 class="h2">More clients, in time.</h2>
       <p class="lede">These aren't built yet — and they're exactly where help is welcome. If you'd like to bring Sempa to one of these, the <a href="contribute.html" style="color:var(--sempa-accent)">Contribute</a> page is the place to start.</p>
     </div>
-    <div class="grid g-3 reveal">
+    <div class="grid g-2 reveal">
       <div class="plat soon"><div class="top"><span class="glyph"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701z"/></svg></span><div><h3>macOS</h3></div><span class="soon-tag">Help wanted</span></div><p class="muted" style="font-size:14px">A Tauri build for Mac — most of the groundwork is shared with Windows.</p></div>
       <div class="plat soon"><div class="top"><span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 19h2"/></svg></span><div><h3>iOS</h3></div><span class="soon-tag">Help wanted</span></div><p class="muted" style="font-size:14px">A Capacitor build for iPhone &amp; iPad, with on-device reminders.</p></div>
-      <div class="plat soon"><div class="top"><span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-2 3-2 5 0 8s2 5 0 8"/><circle cx="12" cy="12" r="9"/></svg></span><div><h3>Linux</h3></div><span class="soon-tag">Help wanted</span></div><p class="muted" style="font-size:14px">An AppImage / Flatpak desktop client to sit alongside Windows and Mac.</p></div>
     </div>
   </div>
 </section>

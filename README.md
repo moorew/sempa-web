@@ -29,7 +29,8 @@ database, no framework. Drop the contents of this folder onto any static host.
 2. **Releases** — the Download page reads `api.github.com/repos/moorew/sempa/releases`
    live. Until the repo has published releases (with `.msi` / `.apk` assets), it
    gracefully falls back to linking `…/releases/latest`. Asset matching uses
-   filename patterns (`*x64*.msi`, `*arm64*.msi`, `*.apk`) — adjust in `site.js`
+   filename patterns (`*x64*.msi`, `*arm64*.msi`, `*.apk`, `*.AppImage`, `*.deb`,
+   `*.rpm`) — adjust in `site.js`
    (`matchAsset` calls) if your release asset names differ.
 3. **Open Graph / favicon** — add a favicon and `og:image` when ready (not included).
 

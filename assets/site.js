@@ -151,6 +151,10 @@
         wireLink('dl-win-arm', matchAsset(assets, [/arm64.*\.msi$/i, /aarch64.*\.msi$/i]), null, 'win-arm');
         // Android
         wireLink('dl-android', matchAsset(assets, [/\.apk$/i]), fallback, 'android');
+        // Linux
+        wireLink('dl-linux-appimage', matchAsset(assets, [/x86_64.*\.appimage$/i, /amd64.*\.appimage$/i, /\.appimage$/i]), fallback, 'linux');
+        wireLink('dl-linux-deb', matchAsset(assets, [/amd64.*\.deb$/i, /x86_64.*\.deb$/i, /\.deb$/i]), fallback, 'linux-deb');
+        wireLink('dl-linux-rpm', matchAsset(assets, [/x86_64.*\.rpm$/i, /\.rpm$/i]), fallback, 'linux-rpm');
 
         // Older versions menu
         var menu = document.getElementById('older-list');
@@ -165,7 +169,7 @@
       .catch(function () {
         // Graceful fallback — everything points at /releases/latest
         ['latest-tag'].forEach(function (id) { setText(id, 'GitHub'); });
-        ['dl-win-x64', 'dl-android'].forEach(function (id) {
+        ['dl-win-x64', 'dl-android', 'dl-linux-appimage', 'dl-linux-deb', 'dl-linux-rpm'].forEach(function (id) {
           var el = document.getElementById(id); if (el) { el.href = fallback; el.target = '_blank'; el.rel = 'noopener'; el.classList.remove('disabled'); }
         });
         var arm = document.getElementById('dl-win-arm'); if (arm) { arm.href = fallback; arm.target = '_blank'; }

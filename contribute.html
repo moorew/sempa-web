@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Contribute — Sempa</title>
-<meta name="description" content="Sempa is open source and welcomes help — native clients for macOS, iOS and Linux, new integrations, packaging, docs and testing. Here's how to get involved."/>
+<meta name="description" content="Sempa is open source and welcomes help — native clients for macOS and iOS, new integrations, packaging, docs and testing. Here's how to get involved."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
@@ -84,10 +84,10 @@
     </div>
 
     <h3 class="h3 reveal" style="margin-bottom:16px">New clients</h3>
-    <div class="grid g-3 reveal" style="margin-bottom:40px">
+    <div class="grid g-2 reveal" style="margin-bottom:40px">
       <div class="want"><span class="wi"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701z"/></svg></span><div><h4>macOS app</h4><p>A Tauri desktop build for Mac — much of the shell is shared with Windows already.</p><span class="tag">Rust · Tauri</span></div></div>
       <div class="want"><span class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 19h2"/></svg></span><div><h4>iOS app</h4><p>A Capacitor build for iPhone &amp; iPad, including on-device reminder scheduling.</p><span class="tag">Capacitor · Swift</span></div></div>
-      <div class="want"><span class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-2 3-2 5 0 8s2 5 0 8"/><circle cx="12" cy="12" r="9"/></svg></span><div><h4>Linux desktop</h4><p>An AppImage or Flatpak client to round out the desktop trio.</p><span class="tag">Rust · Tauri</span></div></div>
+      </div>
     </div>
 
     <h3 class="h3 reveal" style="margin-bottom:16px">Integrations</h3>
@@ -102,7 +102,7 @@
 
     <h3 class="h3 reveal" style="margin-bottom:16px">Packaging &amp; distribution</h3>
     <div class="grid g-3 reveal">
-      <div class="want"><span class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 7.5v9L12 21l9-4.5v-9L12 3Z"/><path d="m3 7.5 9 4.5 9-4.5M12 21v-9"/></svg></span><div><h4>Public Docker image</h4><p>Publish a multi-arch image to GHCR so self-hosting is a single <span class="mono">docker run</span>.</p><span class="tag">Roadmap · CI</span></div></div>
+      <div class="want"><span class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-2 3-2 5 0 8s2 5 0 8"/><circle cx="12" cy="12" r="9"/></svg></span><div><h4>AUR &amp; Flathub</h4><p>Get the Linux desktop app onto the AUR (<span class="mono">sempa-bin</span>) and Flathub — the packaging is staged and just needs maintainers.</p><span class="tag">Packaging</span></div></div>
       <div class="want"><span class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></span><div><h4>F-Droid listing</h4><p>Get the Android build into F-Droid with a reproducible build pipeline.</p><span class="tag">Android · CI</span></div></div>
       <div class="want"><span class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.5 11.5a1 1 0 0 1-1 .9H7.5a1 1 0 0 1-1-.9L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></span><div><h4>Homebrew &amp; package managers</h4><p>A Homebrew cask, Scoop/winget manifest, and AUR package for one-line installs.</p><span class="tag">Packaging</span></div></div>
     </div>
