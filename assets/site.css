@@ -378,7 +378,7 @@ kbd{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--sempa
 .footer-base{border-top:1px solid var(--sempa-border);padding-top:28px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;color:var(--sempa-text-dim);font-size:13px}
 .footer-base .tib-mini{color:var(--sempa-accent);font-size:15px}
 .footer-base .made-ca{display:inline-flex;align-items:center;gap:8px;color:var(--sempa-text-soft)}
-.footer-base .made-ca .maple{width:12px;height:17px;fill:var(--sempa-accent);flex-shrink:0}
+.footer-base .made-ca .maple{width:auto;height:14px;fill:var(--sempa-accent);flex-shrink:0;position:relative;top:0.5px}
 .footer-base .made-ca .heart{width:13px;height:13px;fill:var(--sempa-accent);vertical-align:-2px;margin:0 1px}
 
 /* ── Live app mockup (hero — themeable week view) ────────────────────── */
@@ -596,13 +596,16 @@ html:not(.has-reveal) .reveal{opacity:1;transform:none}
   /* Long shell commands wrap fully (incl. unbroken URLs) so nothing is cut off the right edge */
   .code{padding:15px 16px;font-size:12.5px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word}
 }
-@media(max-width:680px){
-  body{font-size:16px}
+@media(max-width:980px){
+  /* 6 nav items no longer fit between ~681–972px — collapse to the hamburger earlier */
   .nav-links{display:none}
   .nav-links.open{display:flex;position:fixed;inset:66px 0 auto 0;flex-direction:column;background:var(--sempa-bg-main);
     border-bottom:1px solid var(--sempa-border);padding:14px 20px;gap:2px;z-index:55}
   .nav-links.open a{padding:13px;font-size:17px}
   .nav-toggle{display:flex}
+}
+@media(max-width:680px){
+  body{font-size:16px}
   .g-2,.g-3,.g-4,.theme-cards{grid-template-columns:1fr}
   .donate-hide{display:none}
 }
