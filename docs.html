@@ -83,8 +83,9 @@
         <a href="#reflect">Shutdown &amp; journal</a>
         <a href="#encouragement">Daily encouragement</a>
         <a href="#backlog">Backlog</a>
-        <a href="#focus">Focus &amp; Pomodoro</a>
+        <a href="#focus">Focus &amp; time tracking</a>
         <a href="#search">Search &amp; filters</a>
+        <a href="#lists">Lists</a>
         <a href="#recurring">Recurring tasks</a>
         <a href="#today">Today board</a>
         <a href="#widget">Desktop widget</a>
@@ -160,14 +161,33 @@
         <h2 id="backlog">Backlog</h2>
         <p>A single list of everything not yet scheduled — your inbox of ideas. Pull items into days as you plan.</p>
 
-        <h2 id="focus">Focus &amp; Pomodoro</h2>
-        <p>Open a task in <b>Focus</b> mode to work distraction-free with a built-in <b>Pomodoro</b> timer. Completed sessions are logged per task, so you can see time spent against your estimate.</p>
+        <h2 id="focus">Focus &amp; time tracking</h2>
+        <p>Hit <b>Focus</b> on any task to start a <b>Pomodoro</b>. A <b>persistent timer widget</b> then follows you across the whole app, showing the task, the countdown, and <b>how long you've actually spent vs. your estimate</b> — so an overrun is obvious in the moment, not a surprise at the end. The timer survives navigation and reloads.</p>
+        <p>Sempa is built with <b>time-blindness</b> in mind — we routinely think a task will take 20 minutes when it takes an hour — and logs <b>honest time</b>, not the countdown: when you finish, it shows the measured time and asks you to <b>confirm or adjust</b> it (including “didn't really work on it”), so only the number you confirm is recorded. Complete a task with no timer running and a gentle <i>“How long did that take?”</i> prompt catches it (it skips very quick tasks and backs off when you're clearing a burst).</p>
+        <ul>
+          <li><b>Planned-vs-actual profile</b> — Sempa learns how your estimates compare to reality, overall and per tag (e.g. <i>“email tasks usually run 1.8&times;”</i>), and nudges you toward realistic estimates. <b>Plan my day</b> uses the same calibration.</li>
+          <li><b>Estimate with AI</b> (with <a href="#ai" style="color:var(--sempa-accent)">AI assist</a> on) predicts a task's duration — general at first, then <b>personalised</b> from your own logged history.</li>
+          <li><b>Day capacity</b> — set how many focused hours fit a realistic day and Sempa quietly flags overload, judged by calibrated time so optimistic guesses don't sneak a day over its limit.</li>
+          <li><b>Insights</b> (in the nav) turns the logged data into a picture — a plain-language headline (<i>“you take 1.8&times; longer than you plan”</i>), planned-vs-actual totals, your multipliers by activity and tag, and recent over/under per task.</li>
+        </ul>
+        <p>Tune all of it — the completion prompt, the day-capacity limit, per-activity default times, and your timer lengths — in <b>Settings &rarr; Time&nbsp;tracking</b>.</p>
 
         <h2 id="search">Search &amp; filters</h2>
         <p><b>Search</b> looks across tasks, objectives and journal entries. On list views, switch into <b>tag filter mode</b> to show only tasks with a given tag. When filtering by a tag, <b>export</b> the resulting list as <b>CSV</b> or clean <b>Markdown</b> from the Search page.</p>
 
+        <h2 id="lists">Lists</h2>
+        <p>The <b>Lists</b> view holds standalone, undated <b>checklists</b> — an ongoing groceries list, a packing list, materials to buy. Add items, <b>drag to reorder</b>, and tick them off (checked items grey out and strike through in place; untick to restore). Lists live independently of any day, so a half-checked list just waits for you.</p>
+        <ul>
+          <li><b>Link to a task</b> — from a task's <b>Lists</b> section, attach an existing list or spin up a new one, with an optional <b>“archive when the task is done”</b> per list for automatic cleanup.</li>
+          <li><b>Organise with AI</b> — groups items into natural categories (Produce, Dairy…) using your <a href="#ai" style="color:var(--sempa-accent)">local model</a>.</li>
+          <li><b>Export Markdown</b> — downloads the list as a <span class="mono">.md</span> file (name as the title, items as bullets).</li>
+          <li>Archive / unarchive whole lists to keep the view tidy.</li>
+        </ul>
+        <p>Lists are <b>local-first</b> like the rest of Sempa — add, reorder and check items with no connection; they sync when you're back online.</p>
+
         <h2 id="recurring">Recurring tasks</h2>
-        <p>Create <b>daily, weekly or monthly</b> templates (Settings → Recurring Tasks). Instances generate automatically; editing one occurrence customises just that one while the series rolls forward.</p>
+        <p>Create <b>daily, weekly or monthly</b> templates (Settings → Recurring Tasks). Instances generate automatically; editing one occurrence customises just that one while the series rolls forward. To change the template itself — title, notes, tags, estimate or schedule — use its <b>edit</b> button in Settings → Recurring Tasks; changes flow to upcoming occurrences while anything you've already customised stays put.</p>
+        <div class="callout"><b>Timezone-aware.</b> Recurring instances, the daily-board rollover and the morning digest all key off your <b>home timezone</b> — set during install (auto-detected) or any time in <b>Settings &rarr; Notifications &rarr; Timezone</b>. Set it to your real zone, or the day turns over at the wrong hour. Task times are <b>floating</b> (they don't shift when you travel); a travelling device follows its own zone, and Sempa offers a banner when it notices you're away from home.</div>
 
         <h2 id="today">Today board</h2>
         <p>The <b>Today</b> view is a rolling board of day columns with today anchored at the left edge. Scroll left into the past and right into the future <b>continuously</b> — no week boundaries to page through. The ‹ › header buttons and the <kbd>j</kbd> / <kbd>k</kbd> keys jump a week at a time; <b>Today</b> re-anchors on the current day.</p>
@@ -233,10 +253,39 @@
         <p>The desktop and Android apps are <b>local-first</b>: they keep a local copy of your data, so the app stays fully usable with no connection. Changes queue and sync automatically when the server is reachable; a sync indicator shows status. Plain web (in a browser, not installed) talks directly to the server.</p>
 
         <h2 id="backup">Backup &amp; restore</h2>
-        <p>In Settings → Backup &amp; Restore: <b>automatic daily backups</b> at an hour you choose with a retention count, optional <b>encryption</b> with a passphrase, and destinations — keep them local or push to <b>S3</b>, <b>WebDAV</b> or <b>Google Drive</b> (each with a <b>Test</b> button). Run one on demand, download the latest, or restore from a file. Migrations run automatically on startup; your data lives in the <span class="mono">sempa_data</span> Docker volume.</p>
+        <p>In <b>Settings &rarr; Backup &amp; Restore</b>: <b>automatic daily backups</b> at an hour you choose with a <b>retention count</b>, optional <b>encryption</b> with a passphrase, and one or more <b>destinations</b> (each with a <b>Test</b> button). <b>Run now</b> for an on-demand backup, <b>Download</b> the latest archive, or <b>Restore</b> from a file. Migrations run automatically on startup, so a backup taken on an older version restores cleanly after you upgrade; your data lives in the <span class="mono">sempa_data</span> Docker volume.</p>
+        <table class="docs-table">
+          <tr><th>Destination</th><th>What you need</th></tr>
+          <tr><td><b>Local folder</b></td><td>Nothing — kept on the server (the default). That's one copy on one disk, so pair it with an off-server destination.</td></tr>
+          <tr><td><b>S3-compatible</b></td><td>Bucket, region, access key ID + secret (AWS S3, Backblaze B2, MinIO…), optional key prefix.</td></tr>
+          <tr><td><b>WebDAV / Nextcloud</b></td><td>The WebDAV URL plus a username + password (or app password).</td></tr>
+          <tr><td><b>Google Drive</b></td><td>A connected Google account (see below). Backups land in a dedicated <span class="mono">Sempa&nbsp;Backups</span> folder.</td></tr>
+        </table>
+        <div class="callout"><b>Encryption:</b> turn on a passphrase and archives are encrypted (AES-GCM) before they leave the server. <b>Store the passphrase somewhere safe</b> — without it, an encrypted backup cannot be restored.</div>
+
+        <h3>Connecting Google Drive</h3>
+        <p>Google Drive backup reuses your server's <b>Google OAuth client</b> — the same one that powers Google sign-in and Gmail import (see <a href="#config" style="color:var(--sempa-accent)">Configuration</a>). Once that's configured, add a <b>Google Drive</b> destination and click <b>Connect Google Drive</b>; you'll consent in Google and come back to Sempa. Sempa requests only the <span class="mono">drive.file</span> scope, so it can see <b>only the files it creates</b> — never the rest of your Drive.</p>
+        <ul>
+          <li><b>Authorise both redirect URIs</b> on your OAuth client (Google Cloud Console &rarr; <b>Credentials</b>), or the connect step fails with a redirect-mismatch error:
+            <ul>
+              <li><span class="mono">{APP_URL}/api/v1/auth/google/callback</span> — sign-in</li>
+              <li><span class="mono">{APP_URL}/api/v1/backup/drive/callback</span> — Drive backup</li>
+            </ul>
+          </li>
+          <li><b>On Android</b>, consent opens in a secure in-app browser tab and returns you straight to the app when it finishes — no detour through the website.</li>
+        </ul>
+        <div class="callout"><b>Stop Google backups from breaking every 7 days.</b> If your OAuth app's publishing status is <b>“Testing”</b>, Google <b>expires its tokens after 7 days</b> — so Drive backups quietly start failing a week after you connect them and Sempa shows a <i>“Google access expired — reconnect”</i> banner. The permanent fix is to <b>publish the app to Production</b>: in Google Cloud Console &rarr; <b>OAuth consent screen &rarr; Audience</b>, set the status to <b>In production</b>. Because Sempa is a single-user app requesting only its own files, you can safely click past the “unverified app” warning (<b>Advanced &rarr; Go to Sempa</b>) — verification only removes that warning, it isn't needed to stop the expiry. If access has already lapsed, click <b>Reconnect Google Drive</b> on the backup screen after publishing.</div>
+
+        <h3>Restoring</h3>
+        <p>On the same screen, <b>Restore</b> from a downloaded archive (enter the passphrase if it was encrypted). A restore replaces your current data, so it asks you to confirm first. Because migrations run on startup, an archive from an older Sempa restores cleanly onto a newer one.</p>
 
         <h2 id="appearance">Appearance &amp; themes</h2>
         <p>In Settings → Appearance, choose from <b>six full-interface themes</b> — <b>Terracotta</b> (default), <b>Forest</b>, <b>Plum</b>, <b>Slate</b>, <b>OLED Black</b> and <b>Ocean</b> — each with a live preview. Every theme has a light and dark mode, except OLED Black, which is dark-only. The same page has a <b>text-size</b> slider, the <b>sidebar grouping</b> and <b>section style</b> controls for the desktop nav rail, and the <b>contextual reflections</b> toggle. Your choice is remembered per device and applied before first paint — no flash on load.</p>
+        <ul>
+          <li><b>Use system UI font</b> — render the interface in your device's own font instead of Sempa's Plus&nbsp;Jakarta&nbsp;Sans.</li>
+          <li><b>Match system accent</b> — on platforms that expose an accent colour (Windows, GNOME&nbsp;47+/KDE), use it in place of the theme's; off keeps the Sempa accent.</li>
+          <li><b>Use system title bar</b> (desktop) — hand the window frame to your OS; off keeps Sempa's in-app title bar, which mirrors your window-button layout.</li>
+        </ul>
 
         <h2 id="updates">Updates</h2>
         <p>Sempa checks GitHub for newer releases and surfaces them in-app: a subtle indicator in the nav rail, an update toast (<b>Download · What's new · Later</b>), and <b>Settings → About</b> — current version, update channel (Stable / Beta), an automatic-checks toggle, when it last checked, and a manual <b>Check for updates</b>. On web and desktop this points you to the installer. Optional silent background self-update for the desktop app is opt-in.</p>
@@ -255,9 +304,10 @@
           <tr><td>Calendars</td><td>Connected calendars, ICS/webcal feeds, show/hide, colours</td></tr>
           <tr><td>Tags</td><td>Create, rename, recolour tags</td></tr>
           <tr><td>Recurring Tasks</td><td>Daily / weekly / monthly templates</td></tr>
-          <tr><td>Notifications</td><td>Reminders, delivery channels, sounds, routines</td></tr>
-          <tr><td>Backup &amp; Restore</td><td>Schedule, encryption, destinations</td></tr>
-          <tr><td>Appearance</td><td>Theme, light/dark, text size, sidebar grouping, contextual reflections</td></tr>
+          <tr><td>Notifications</td><td>Reminders, delivery channels, sounds, routines, <b>home timezone</b></td></tr>
+          <tr><td>Time tracking</td><td>Completion prompt, day capacity, per-activity default times, focus/break lengths</td></tr>
+          <tr><td>Backup &amp; Restore</td><td>Schedule, encryption, destinations (Local · S3 · WebDAV · Google Drive)</td></tr>
+          <tr><td>Appearance</td><td>Theme, light/dark, text size, sidebar grouping, contextual reflections, system font / accent / title bar</td></tr>
           <tr><td>About</td><td>Version, update channel, automatic checks, “Check for updates”</td></tr>
         </table>
 
@@ -303,6 +353,8 @@ bash <span class="k">install.sh</span></div>
           <tr><th>Variable</th><th>Purpose</th></tr>
           <tr><td><span class="mono">APP_URL</span></td><td>Where Sempa is accessible (no trailing slash)</td></tr>
           <tr><td><span class="mono">HOST_PORT</span></td><td>Port to expose on the host (default 9001)</td></tr>
+          <tr><td><span class="mono">GMAIL_CLIENT_ID</span> · <span class="mono">GMAIL_CLIENT_SECRET</span></td><td>Google OAuth client — one client powers sign-in, Gmail import <b>and</b> Google Drive backup. Authorise both the <span class="mono">/api/v1/auth/google/callback</span> and <span class="mono">/api/v1/backup/drive/callback</span> redirect URIs, and <b>publish the app to Production</b> to avoid 7-day token expiry (see <a href="#backup" style="color:var(--sempa-accent)">Backup</a>)</td></tr>
+          <tr><td><span class="mono">SEMPA_TIMEZONE</span></td><td>Home <b>IANA timezone</b> (e.g. <span class="mono">America/Toronto</span>); sets when the day rolls over for recurring tasks, the board and the digest. Auto-detected by <span class="mono">install.sh</span>; also editable in Settings → Notifications</td></tr>
           <tr><td><span class="mono">SEMPA_ALLOWED_EMAILS</span></td><td>Comma-separated allow-list for Google sign-in</td></tr>
           <tr><td><span class="mono">SEMPA_USERNAME / _PASSWORD</span></td><td>Username + password auth (unset disables auth)</td></tr>
           <tr><td><span class="mono">TS_AUTHKEY</span></td><td>Auth key for the Tailscale sidecar</td></tr>
