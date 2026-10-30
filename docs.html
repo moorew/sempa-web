@@ -7,7 +7,7 @@
 <meta name="description" content="How to use Sempa day to day, and how to self-host it — tasks, planning, focus, reflection, local AI assist, integrations, reminders, backup, and the Docker + Tailscale setup."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
 <script>(function(){try{var t=localStorage.getItem('sempa-site-theme')||'terracotta';var m=localStorage.getItem('sempa-site-mode')||'light';if(t==='oled')m='dark';document.documentElement.setAttribute('data-theme',t);if(m==='dark')document.documentElement.classList.add('dark');}catch(e){}})();</script>
 <link rel="icon" href="/favicon.ico?v=2" sizes="any"/>
 <link rel="icon" href="/assets/favicon.svg?v=2" type="image/svg+xml"/>
@@ -43,7 +43,7 @@
       <a class="icon-btn donate-hide" href="https://github.com/moorew/sempa" target="_blank" rel="noopener" aria-label="GitHub repository" title="GitHub">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5A10.5 10.5 0 0 0 1.5 12c0 4.64 3 8.57 7.18 9.96.53.1.72-.23.72-.5v-1.76c-2.92.63-3.54-1.4-3.54-1.4-.48-1.22-1.17-1.55-1.17-1.55-.95-.65.07-.64.07-.64 1.06.07 1.61 1.09 1.61 1.09.94 1.6 2.46 1.14 3.06.87.1-.68.37-1.14.67-1.4-2.33-.27-4.78-1.16-4.78-5.18 0-1.15.41-2.08 1.08-2.82-.11-.27-.47-1.34.1-2.79 0 0 .88-.28 2.88 1.07a10 10 0 0 1 5.24 0c2-1.35 2.88-1.07 2.88-1.07.57 1.45.21 2.52.1 2.79.67.74 1.08 1.67 1.08 2.82 0 4.03-2.46 4.91-4.8 5.17.38.33.71.97.71 1.96v2.9c0 .28.19.61.73.5A10.5 10.5 0 0 0 22.5 12 10.5 10.5 0 0 0 12 1.5Z"/></svg>
       </a>
-      <a class="btn btn-primary donate-hide" href="donate.html" style="padding:9px 16px;font-size:14px">Donate</a>
+      <a class="btn btn-primary btn-sm donate-hide" href="donate.html">Donate</a>
       <button class="icon-btn nav-toggle" id="nav-toggle" aria-label="Menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
@@ -123,7 +123,7 @@
           <li><b>Optionally encrypt</b> with a passphrase. Store the passphrase somewhere safe — without it an encrypted backup can't be restored.</li>
           <li><b>Run one now</b> to verify the whole path end to end, then <b>Download</b> the archive to keep an extra copy.</li>
         </ul>
-        <p>To recover, return to the same screen and <b>Restore</b> from a backup file. Database migrations run automatically on startup, so a backup taken on an older version restores cleanly after you upgrade. Full options are in <a href="#backup" style="color:var(--sempa-accent)">Backup &amp; restore</a> below.</p>
+        <p>To recover, return to the same screen and <b>Restore</b> from a backup file. Database migrations run automatically on startup, so a backup taken on an older version restores cleanly after you upgrade. Full options are in <a href="#backup" style="color:var(--sempa-accent-ink)">Backup &amp; restore</a> below.</p>
         <div class="callout"><b>Before every upgrade</b> (<span class="mono">git pull &amp;&amp; docker compose build &amp;&amp; docker compose up -d</span>), it's worth a quick <b>Run now</b> backup first — so if anything looks off afterwards, rolling back is trivial.</div>
 
         <h2 id="first-run">First run</h2>
@@ -144,7 +144,7 @@
           <li><b>Status</b> flows <span class="mono">backlog → planned → in progress → done</span> (plus cancelled) — drag between columns on the week board, or toggle the checkbox.</li>
           <li><b>Due date &amp; estimate</b> (15 min – 8 h), colour-coded <b>tags</b>, <b>sub-tasks</b>, file <b>attachments</b>, and <b>time-blocking</b> onto the schedule.</li>
           <li>A soft <b>“roughly at”</b> hint orders a task in the day without a hard block.</li>
-          <li><b>Remind me</b> (date + time) sets a hard alert — see <a href="#reminders" style="color:var(--sempa-accent)">Reminders</a>.</li>
+          <li><b>Remind me</b> (date + time) sets a hard alert — see <a href="#reminders" style="color:var(--sempa-accent-ink)">Reminders</a>.</li>
           <li><b>Right-click menu (desktop):</b> right-click a task for quick actions (Edit · Complete · Focus · Delete), an objective for its actions, or empty board space for New task / Go to today / Search.</li>
           <li><b>Undo delete:</b> deleting a task shows an <b>Undo</b> toast; non-Jira tasks are restored, and a deleted Jira task returns to the Jira list automatically.</li>
         </ul>
@@ -169,7 +169,7 @@
         <p>Sempa is built with <b>time-blindness</b> in mind — we routinely think a task will take 20 minutes when it takes an hour — and logs <b>honest time</b>, not the countdown: when you finish, it shows the measured time and asks you to <b>confirm or adjust</b> it (including “didn't really work on it”), so only the number you confirm is recorded. Complete a task with no timer running and a gentle <i>“How long did that take?”</i> prompt catches it (it skips very quick tasks and backs off when you're clearing a burst).</p>
         <ul>
           <li><b>Planned-vs-actual profile</b> — Sempa learns how your estimates compare to reality, overall and per tag (e.g. <i>“email tasks usually run 1.8&times;”</i>), and nudges you toward realistic estimates. <b>Plan my day</b> uses the same calibration.</li>
-          <li><b>Estimate with AI</b> (with <a href="#ai" style="color:var(--sempa-accent)">AI assist</a> on) predicts a task's duration — general at first, then <b>personalised</b> from your own logged history.</li>
+          <li><b>Estimate with AI</b> (with <a href="#ai" style="color:var(--sempa-accent-ink)">AI assist</a> on) predicts a task's duration — general at first, then <b>personalised</b> from your own logged history.</li>
           <li><b>Day capacity</b> — set how many focused hours fit a realistic day and Sempa quietly flags overload, judged by calibrated time so optimistic guesses don't sneak a day over its limit.</li>
           <li><b>Insights</b> (in the nav) turns the logged data into a picture — a plain-language headline (<i>“you take 1.8&times; longer than you plan”</i>), planned-vs-actual totals, your multipliers by activity and tag, and recent over/under per task.</li>
         </ul>
@@ -182,7 +182,7 @@
         <p>The <b>Lists</b> view holds standalone, undated <b>checklists</b> — an ongoing groceries list, a packing list, materials to buy. Add items, <b>drag to reorder</b>, and tick them off (checked items grey out and strike through in place; untick to restore). Lists live independently of any day, so a half-checked list just waits for you.</p>
         <ul>
           <li><b>Link to a task</b> — from a task's <b>Lists</b> section, attach an existing list or spin up a new one, with an optional <b>“archive when the task is done”</b> per list for automatic cleanup.</li>
-          <li><b>Organise with AI</b> — groups items into natural categories (Produce, Dairy…) using your <a href="#ai" style="color:var(--sempa-accent)">local model</a>.</li>
+          <li><b>Organise with AI</b> — groups items into natural categories (Produce, Dairy…) using your <a href="#ai" style="color:var(--sempa-accent-ink)">local model</a>.</li>
           <li><b>Export Markdown</b> — downloads the list as a <span class="mono">.md</span> file (name as the title, items as bullets).</li>
           <li>Archive / unarchive whole lists to keep the view tidy.</li>
         </ul>
@@ -211,7 +211,7 @@
         <ul>
           <li><b>Gmail / Fastmail:</b> star an email and it imports as a task.</li>
           <li><b>Task inbox:</b> forward (or auto-forward) mail to a dedicated address to create tasks; allow-list senders.</li>
-          <li><b>AI title cleanup:</b> imported subjects are tidied into clean task titles by your <b>local model</b> — no API key, and nothing leaves your server. It's part of the broader <a href="#ai" style="color:var(--sempa-accent)">AI assist</a> suite; opt in during <span class="mono">install.sh</span> or in <b>Settings &rarr; Integrations &rarr; AI</b>.</li>
+          <li><b>AI title cleanup:</b> imported subjects are tidied into clean task titles by your <b>local model</b> — no API key, and nothing leaves your server. It's part of the broader <a href="#ai" style="color:var(--sempa-accent-ink)">AI assist</a> suite; opt in during <span class="mono">install.sh</span> or in <b>Settings &rarr; Integrations &rarr; AI</b>.</li>
         </ul>
         <p>The <b>Email</b> screen lets you triage incoming mail and convert messages to tasks, with the original linked.</p>
 
@@ -235,7 +235,7 @@
         </table>
 
         <h2 id="jira">Jira</h2>
-        <p>Connect Jira to import your assigned issues as tasks — full guide in <a href="https://github.com/moorew/sempa/blob/main/docs/JIRA.md" target="_blank" rel="noopener" style="color:var(--sempa-accent)">docs/JIRA.md</a>. In brief:</p>
+        <p>Connect Jira to import your assigned issues as tasks — full guide in <a href="https://github.com/moorew/sempa/blob/main/docs/JIRA.md" target="_blank" rel="noopener" style="color:var(--sempa-accent-ink)">docs/JIRA.md</a>. In brief:</p>
         <ul>
           <li><b>Rich import:</b> issues sync with a link to the ticket and the description copied into the task notes (offline-readable); re-sync keeps title, status and metadata current.</li>
           <li><b>Manage from the task:</b> a live Jira section shows status, type, priority, assignee, labels, an “Open in Jira” link, and the issue's real workflow <b>transitions as buttons</b>. Marking a Jira task <b>done</b> also transitions the ticket.</li>
@@ -273,7 +273,7 @@
         <div class="callout"><b>Encryption:</b> turn on a passphrase and archives are encrypted (AES-GCM) before they leave the server. <b>Store the passphrase somewhere safe</b> — without it, an encrypted backup cannot be restored.</div>
 
         <h3>Connecting Google Drive</h3>
-        <p>Google Drive backup reuses your server's <b>Google OAuth client</b> — the same one that powers Google sign-in and Gmail import (see <a href="#config" style="color:var(--sempa-accent)">Configuration</a>). Once that's configured, add a <b>Google Drive</b> destination and click <b>Connect Google Drive</b>; you'll consent in Google and come back to Sempa. Sempa requests only the <span class="mono">drive.file</span> scope, so it can see <b>only the files it creates</b> — never the rest of your Drive.</p>
+        <p>Google Drive backup reuses your server's <b>Google OAuth client</b> — the same one that powers Google sign-in and Gmail import (see <a href="#config" style="color:var(--sempa-accent-ink)">Configuration</a>). Once that's configured, add a <b>Google Drive</b> destination and click <b>Connect Google Drive</b>; you'll consent in Google and come back to Sempa. Sempa requests only the <span class="mono">drive.file</span> scope, so it can see <b>only the files it creates</b> — never the rest of your Drive.</p>
         <ul>
           <li><b>Authorise both redirect URIs</b> on your OAuth client (Google Cloud Console &rarr; <b>Credentials</b>), or the connect step fails with a redirect-mismatch error:
             <ul>
@@ -302,8 +302,8 @@
         <h2 id="security">Security</h2>
         <p>Sempa is built to be safe to run yourself. It's free and open source under the <b>AGPL-3.0</b>, so anyone can read exactly what it does, and it follows the <b>OpenSSF Best Practices</b> standard (passing) — a recognised checklist for how securely an open-source project is run.</p>
         <p>Every change is checked automatically before it ships: <b>CodeQL</b> scans the code, <b>govulncheck</b> and <b>Trivy</b> watch for known vulnerabilities in dependencies (the build fails on serious ones), and <b>gitleaks</b> guards against committed secrets. The parsers that read untrusted input — calendar feeds, imported email, recurrence rules and AI output — are continuously <b>fuzzed</b>, with tests run under Go's race detector. Dependencies are kept current by <b>Dependabot</b>, the full test suite runs on every change, and the main branch is protected so code only lands through reviewed pull requests. Release downloads are <b>signed with cosign</b>, Docker base images are digest-pinned, and the server runs as a <b>non-root container</b>.</p>
-        <p>For your own setup, two steps do most of the work: reach Sempa over <a href="#tailscale" style="color:var(--sempa-accent)">Tailscale</a> so nothing is exposed to the public internet, and turn on <a href="#backup" style="color:var(--sempa-accent)">encrypted backups</a>. The plain-language <a href="security.html" style="color:var(--sempa-accent)">Security overview</a> covers the rest, and the full <a href="https://www.bestpractices.dev/projects/13228" target="_blank" rel="noopener" style="color:var(--sempa-accent)">OpenSSF assessment</a> and <a href="https://github.com/moorew/sempa/blob/main/SECURITY.md" target="_blank" rel="noopener" style="color:var(--sempa-accent)">SECURITY.md</a> document every criterion and scan.</p>
-        <div class="callout"><b>Found a vulnerability?</b> Please report it privately via GitHub's <a href="https://github.com/moorew/sempa/security/advisories/new" target="_blank" rel="noopener" style="color:var(--sempa-accent)">security advisories</a> rather than a public issue, so it can be fixed before details are made public.</div>
+        <p>For your own setup, two steps do most of the work: reach Sempa over <a href="#tailscale" style="color:var(--sempa-accent-ink)">Tailscale</a> so nothing is exposed to the public internet, and turn on <a href="#backup" style="color:var(--sempa-accent-ink)">encrypted backups</a>. The plain-language <a href="security.html" style="color:var(--sempa-accent-ink)">Security overview</a> covers the rest, and the full <a href="https://www.bestpractices.dev/projects/13228" target="_blank" rel="noopener" style="color:var(--sempa-accent-ink)">OpenSSF assessment</a> and <a href="https://github.com/moorew/sempa/blob/main/SECURITY.md" target="_blank" rel="noopener" style="color:var(--sempa-accent-ink)">SECURITY.md</a> document every criterion and scan.</p>
+        <div class="callout"><b>Found a vulnerability?</b> Please report it privately via GitHub's <a href="https://github.com/moorew/sempa/security/advisories/new" target="_blank" rel="noopener" style="color:var(--sempa-accent-ink)">security advisories</a> rather than a public issue, so it can be fixed before details are made public.</div>
 
         <h2 id="settings">Settings overview</h2>
         <table class="docs-table">
@@ -364,7 +364,7 @@ bash <span class="k">install.sh</span></div>
           <tr><th>Variable</th><th>Purpose</th></tr>
           <tr><td><span class="mono">APP_URL</span></td><td>Where Sempa is accessible (no trailing slash)</td></tr>
           <tr><td><span class="mono">HOST_PORT</span></td><td>Port to expose on the host (default 9001)</td></tr>
-          <tr><td><span class="mono">GMAIL_CLIENT_ID</span> · <span class="mono">GMAIL_CLIENT_SECRET</span></td><td>Google OAuth client — one client powers sign-in, Gmail import <b>and</b> Google Drive backup. Authorise both the <span class="mono">/api/v1/auth/google/callback</span> and <span class="mono">/api/v1/backup/drive/callback</span> redirect URIs, and <b>publish the app to Production</b> to avoid 7-day token expiry (see <a href="#backup" style="color:var(--sempa-accent)">Backup</a>)</td></tr>
+          <tr><td><span class="mono">GMAIL_CLIENT_ID</span> · <span class="mono">GMAIL_CLIENT_SECRET</span></td><td>Google OAuth client — one client powers sign-in, Gmail import <b>and</b> Google Drive backup. Authorise both the <span class="mono">/api/v1/auth/google/callback</span> and <span class="mono">/api/v1/backup/drive/callback</span> redirect URIs, and <b>publish the app to Production</b> to avoid 7-day token expiry (see <a href="#backup" style="color:var(--sempa-accent-ink)">Backup</a>)</td></tr>
           <tr><td><span class="mono">SEMPA_TIMEZONE</span></td><td>Home <b>IANA timezone</b> (e.g. <span class="mono">America/Toronto</span>); sets when the day rolls over for recurring tasks, the board and the digest. Auto-detected by <span class="mono">install.sh</span>; also editable in Settings → Notifications</td></tr>
           <tr><td><span class="mono">SEMPA_ALLOWED_EMAILS</span></td><td>Comma-separated allow-list for Google sign-in</td></tr>
           <tr><td><span class="mono">SEMPA_USERNAME / _PASSWORD</span></td><td>Username + password auth (unset disables auth)</td></tr>
@@ -378,9 +378,9 @@ bash <span class="k">install.sh</span></div>
           <tr><td><span class="mono">INBOX_POLL_INTERVAL</span></td><td>How often to poll the email inbox (default 1m)</td></tr>
           <tr><td><span class="mono">CALENDAR_POLL_INTERVAL</span></td><td>How often to refresh ICS feeds + the Fastmail calendar (default 15m; empty disables)</td></tr>
         </table>
-        <p>Full details, integration setup and all optional variables are in the <a href="https://github.com/moorew/sempa#configuration" target="_blank" rel="noopener" style="color:var(--sempa-accent)">repository README</a>.</p>
+        <p>Full details, integration setup and all optional variables are in the <a href="https://github.com/moorew/sempa#configuration" target="_blank" rel="noopener" style="color:var(--sempa-accent-ink)">repository README</a>.</p>
 
-        <div class="callout" style="margin-top:32px"><b>Note:</b> this guide mirrors the project README. The canonical version lives in the repository — see the <a href="https://github.com/moorew/sempa/blob/main/README.md#user-guide" target="_blank" rel="noopener" style="color:var(--sempa-accent)">README User Guide</a>.</div>
+        <div class="callout" style="margin-top:32px"><b>Note:</b> this guide mirrors the project README. The canonical version lives in the repository — see the <a href="https://github.com/moorew/sempa/blob/main/README.md#user-guide" target="_blank" rel="noopener" style="color:var(--sempa-accent-ink)">README User Guide</a>.</div>
       </div>
     </div>
   </div>

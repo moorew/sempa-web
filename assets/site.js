@@ -31,6 +31,12 @@
     var el = document.documentElement;
     el.setAttribute('data-theme', t.id);
     el.classList.toggle('dark', mode === 'dark');
+    // Mockups marked [data-theme-flip] show the same theme in the other mode
+    // (the home hero's second phone), so both light and dark are always on show.
+    document.querySelectorAll('[data-theme-flip]').forEach(function (p) {
+      p.setAttribute('data-theme', t.id);
+      p.classList.toggle('dark', t.darkOnly ? true : mode !== 'dark');
+    });
     try { localStorage.setItem(TKEY, t.id); localStorage.setItem(MKEY, mode); } catch (e) {}
     syncUI(t.id, mode);
   }
