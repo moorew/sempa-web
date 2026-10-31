@@ -72,7 +72,7 @@
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-copy">
-        <a class="new-badge reveal" href="download.html"><span class="nb-dot" aria-hidden="true"></span>New in 1.27: a softer Sempa</a>
+        <a class="new-badge reveal" href="#aperture"><span class="nb-dot" aria-hidden="true"></span>New in 1.30: AI through Tailscale Aperture</a>
         <p class="eyebrow reveal">Self-hosted · Open source · Private</p>
         <h1 class="display reveal">A mind vast enough to hold the day.</h1>
         <p class="lede reveal">Sempa is a calm task manager you run yourself. Plan each day with intention, hold your focus, and close the evening cleanly — with your email and calendar quietly pulled in. No lock-in, no ads, no one watching.</p>
@@ -373,9 +373,9 @@
 <section>
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">Local AI · entirely optional</span>
-      <h2 class="h2">A quiet assistant —<br/>that never leaves your server.</h2>
-      <p class="lede">Sempa can turn a link or a recipe into a task, break a daunting task into clear steps, draft your weekly review, and tidy messy imports. It runs on a small model <b>you host yourself</b> — so the help is real, and nothing is ever sent to anyone.</p>
+      <span class="eyebrow">AI assist · entirely optional</span>
+      <h2 class="h2">A quiet assistant,<br/>on your terms.</h2>
+      <p class="lede">Sempa can turn a link or a recipe into a task, break a daunting task into clear steps, draft your weekly review, and tidy messy imports. It runs on a small model <b>you host yourself</b>, where nothing is sent to anyone, or on any model your <b>Tailscale Aperture</b> gateway serves. Either way, Sempa holds no API keys.</p>
     </div>
 
     <div class="feature-row" style="border:0;padding-top:8px">
@@ -442,7 +442,7 @@
       <div class="ft-copy reveal">
         <span class="eyebrow">All can be turned off</span>
         <h3>You stay in control, feature by feature.</h3>
-        <p>Beyond breaking up tasks, the same local model can turn a URL or pasted text into a task with steps and a shopping list, power natural-language quick-add, tag suggestions, a drafted weekly review, day planning and end-of-day reflection prompts.</p>
+        <p>Beyond breaking up tasks, the same model can turn a URL or pasted text into a task with steps and a shopping list, power natural-language quick-add, tag suggestions, a drafted weekly review, day planning and end-of-day reflection prompts.</p>
         <p>Each one is an independent switch in <b>Settings → Integrations → AI</b>. Flip any of them off and it vanishes from the app — or turn the whole thing off and Sempa works exactly as it always has.</p>
         <a class="btn btn-ghost" href="features.html#ai" style="margin-top:20px">All the AI features →</a>
       </div>
@@ -538,7 +538,34 @@
       </div>
     </div>
 
-    <div class="feature-row">
+    <div class="feature-row" id="aperture">
+      <div class="ft-copy reveal">
+        <span class="eyebrow">Bring your own models</span>
+        <h3>Local AI, or any model through Aperture.</h3>
+        <p>AI assist runs on a small model on your own server by default. Use <b>Tailscale Aperture</b>? Point Sempa at your gateway and pick any model it serves: Claude, Gemini, OpenAI, or one running on your own GPU.</p>
+        <ul class="checklist" style="margin-top:20px">
+          <li><b>No API keys in Sempa.</b> Aperture knows your server by its tailnet identity.</li>
+          <li><b>Every model in one list</b>, with any that need setting up in Aperture clearly marked.</li>
+          <li><b>Local stays the default.</b> Switch back in one tap, and nothing leaves your server.</li>
+        </ul>
+        <a class="btn btn-ghost" href="docs.html#aperture" style="margin-top:22px">How Aperture works &rarr;</a>
+      </div>
+      <div class="ft-stage reveal">
+        <div class="ap-demo" aria-hidden="true">
+          <div class="ap-seg"><span>On this server</span><span class="on">Aperture</span></div>
+          <div class="ap-status"><i></i>Ready &middot; claude-haiku-5-5</div>
+          <div class="ap-url"><span class="mono">https://ai.your-tailnet.ts.net</span><span class="ap-ok">Connected</span></div>
+          <div class="ap-list">
+            <div class="ap-model on"><span class="r"></span><span class="n mono">claude-haiku-5-5</span><span class="p">anthropic</span></div>
+            <div class="ap-model"><span class="r"></span><span class="n mono">gemini-3.8-flash</span><span class="p">gemini</span></div>
+            <div class="ap-model"><span class="r"></span><span class="n mono">qwen3:14b</span><span class="p">your GPU</span></div>
+          </div>
+          <div class="ap-foot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"/><circle cx="16.5" cy="7.5" r=".5" fill="currentColor"/><path d="m3 3 18 18"/></svg>No API key &middot; your tailnet identity</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-row flip">
       <div class="ft-copy reveal">
         <span class="eyebrow">Always in reach</span>
         <h3>Your day, a glance away.</h3>
