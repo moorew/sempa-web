@@ -390,7 +390,9 @@ kbd{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--sempa
 .docs-body b{color:var(--sempa-text)}
 .docs-table{width:100%;border-collapse:separate;border-spacing:0;margin:10px 0 24px;font-size:14.5px;
   background:var(--sempa-bg-panel);border-radius:var(--r-md);box-shadow:var(--sempa-shadow-1)}
-.docs-table th,.docs-table td{overflow-wrap:break-word;word-break:break-word}
+.docs-table th,.docs-table td{overflow-wrap:anywhere;word-break:normal}
+/* First column holds short names (a feature, a variable): let words wrap whole. */
+.docs-table td:first-child{min-width:9.5em}
 .docs-table th,.docs-table td{text-align:left;padding:11px 16px;border-bottom:1px solid var(--sempa-border)}
 .docs-table tr:last-child td{border-bottom:0}
 .docs-table th{font-size:12.5px;font-weight:700;color:var(--sempa-text-soft);background:var(--sempa-fill)}
@@ -815,3 +817,32 @@ html:not(.has-reveal) .reveal{opacity:1;transform:none}
   .pull{padding:24px 22px}
   .hero-phones{border-radius:32px}
 }
+
+/* ── Aperture callout (1.30): a mini "Where the model runs" settings card ── */
+.ap-demo{width:100%;max-width:340px;display:flex;flex-direction:column;gap:12px;background:var(--card-bg);border-radius:24px;padding:16px;box-shadow:var(--sempa-shadow-2);position:relative;z-index:1}
+.ap-seg{display:flex;gap:4px;padding:4px;border-radius:999px;background:var(--sempa-fill)}
+.ap-seg span{flex:1 1 0;text-align:center;font-size:12px;font-weight:700;padding:7px 0;border-radius:999px;color:var(--sempa-text-soft)}
+.ap-seg span.on{background:var(--card-bg);color:var(--sempa-text);box-shadow:var(--sempa-shadow-1)}
+.ap-status{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;color:var(--sempa-text-soft);padding:0 2px}
+.ap-status i{width:8px;height:8px;border-radius:50%;background:var(--sempa-success)}
+.ap-url{display:flex;align-items:center;gap:8px;justify-content:space-between;background:var(--sempa-fill);border-radius:14px;padding:9px 10px 9px 12px}
+.ap-url .mono{font-size:11.5px;color:var(--sempa-text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.ap-ok{flex-shrink:0;font-size:11px;font-weight:700;padding:4px 9px;border-radius:999px;color:color-mix(in srgb,#5f9a6c 62%,var(--sempa-text));background:color-mix(in srgb,#5f9a6c 15%,var(--card-bg))}
+.ap-list{background:var(--sempa-fill);border-radius:14px}
+.ap-model{display:flex;align-items:center;gap:10px;padding:10px 12px}
+.ap-model+.ap-model{border-top:1px solid var(--sempa-border)}
+.ap-model .r{width:16px;height:16px;border-radius:50%;border:2px solid var(--sempa-track);flex-shrink:0;box-sizing:border-box}
+.ap-model.on .r{border:5px solid var(--sempa-accent)}
+.ap-model .n{flex:1;min-width:0;font-size:12px;color:var(--sempa-text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ap-model .p{font-size:11px;color:var(--sempa-text-dim)}
+.ap-foot{display:flex;align-items:center;gap:7px;font-size:11.5px;font-weight:600;color:var(--sempa-accent-ink);background:var(--sempa-accent-bg);border-radius:999px;padding:7px 12px;align-self:flex-start}
+.ap-foot svg{width:13px;height:13px;flex-shrink:0}
+.ap-callout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(24px,4vw,48px);align-items:center;background:var(--sempa-accent-bg);border-radius:var(--r-lg);padding:clamp(24px,3.5vw,40px);margin-top:28px}
+.ap-callout-copy .eyebrow{display:block;margin-bottom:10px}
+.ap-callout-copy p{font-size:15.5px;color:var(--sempa-text-soft);margin-top:12px;line-height:1.6}
+.ap-callout .ap-demo{justify-self:center;box-shadow:var(--sempa-shadow-1)}
+.ap-callout-copy p b{color:var(--sempa-text)}
+@media (max-width:820px){.ap-callout{grid-template-columns:minmax(0,1fr)}}
+.docs-body ol{margin:0 0 16px 0;padding-left:22px;display:flex;flex-direction:column;gap:9px}
+.docs-body ol li{color:var(--sempa-text-soft);padding-left:4px}
+.docs-body ol li::marker{color:var(--sempa-accent-ink);font-weight:700}

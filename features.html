@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Features — Sempa</title>
-<meta name="description" content="Plan your day, hold your focus, close the evening, pull in email, calendar and Jira, and use an optional local AI assistant — every feature of Sempa, the calm self-hosted task manager."/>
+<meta name="description" content="Plan your day, hold your focus, close the evening, pull in email, calendar and Jira, and use an optional AI assistant, local or through Tailscale Aperture — every feature of Sempa, the calm self-hosted task manager."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
@@ -58,7 +58,7 @@
     <h1 class="h1 reveal" style="margin-top:16px">A whole day, held lightly.</h1>
     <p class="lede reveal" style="margin:18px auto 0">Sempa is built around four calm rituals — plan, focus, reflect, connect — and a hundred small, well-made pieces that make them feel effortless. Here's what's inside.</p>
     <div class="hero-cta reveal" style="justify-content:center;margin-top:24px">
-      <a class="btn btn-soft" href="#ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:17px;height:17px"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg>New · Local AI assist</a>
+      <a class="btn btn-soft" href="#ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:17px;height:17px"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg>New · AI through Aperture</a>
     </div>
   </div>
 </section>
@@ -153,7 +153,7 @@
         <span class="eyebrow">Connect</span>
         <h3>Your email and calendar, quietly pulled in.</h3>
         <p>Star a Gmail or Fastmail message and it becomes a task. See Google, Fastmail, CalDAV and ICS calendar events beside your plan. Sync assigned <b>Jira</b> issues — marking one done closes the ticket.</p>
-        <p>Messy subject lines are tidied into clean task titles by a <b>local AI model</b> running on your own server — no email leaves your infrastructure and no API key is needed.</p>
+        <p>Messy subject lines are tidied into clean task titles by your <b>AI model</b>. On the local model no email leaves your infrastructure, and there&rsquo;s never an API key in Sempa.</p>
         <p>Per-task <b>reminders</b> fire by Web Push, native Android, or a webhook (ntfy, Gotify), with ten calm alert tones. Everything optional, configured after login.</p>
         <ul class="checklist" style="margin-top:18px">
           <li>Email → tasks (Gmail, Fastmail, forwarding inbox)</li>
@@ -253,9 +253,9 @@
 <section class="band" id="ai">
   <div class="wrap">
     <div class="sec-head center reveal">
-      <span class="eyebrow">Local AI · entirely optional</span>
-      <h2 class="h2">Help that asks first —<br/>and never leaves your server.</h2>
-      <p class="lede">An optional assistant runs on a small language model <b>you host yourself</b>. It only ever suggests — you approve everything — and not a byte is ever sent to a third party. Off by default; turn on only what you want.</p>
+      <span class="eyebrow">AI assist · entirely optional</span>
+      <h2 class="h2">Help that asks first,<br/>on the model you choose.</h2>
+      <p class="lede">An optional assistant runs on a small language model <b>you host yourself</b>, or on any model your <b>Tailscale Aperture</b> gateway serves. It only ever suggests, you approve everything, and Sempa never holds an API key. Off by default; turn on only what you want.</p>
     </div>
 
     <div class="feature-row" style="border:0">
@@ -263,11 +263,11 @@
         <span class="eyebrow">Break into subtasks</span>
         <h3>The favourite: a checklist from one line.</h3>
         <p>Hand a big, vague task the <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:1em;height:1em;vertical-align:-.14em;color:var(--sempa-accent)"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg> spark</b> and Sempa proposes a few concrete, ordered steps. Add them all, edit them, or dismiss them — the original task is never touched unless you choose to.</p>
-        <p>Because it runs on your own model, there's <b>no API key, no account and no per-use cost</b> — and if the model isn't running, the spark simply doesn't appear.</p>
+        <p>On your own model there's <b>no API key, no account and no per-use cost</b>, and if the model isn't running, the spark simply doesn't appear.</p>
         <ul class="checklist" style="margin-top:18px">
           <li><b>Suggest-only</b> — nothing changes until you approve it</li>
           <li>Ordered, concrete steps you can keep or rewrite</li>
-          <li>Fully local · works offline · no third party</li>
+          <li>Local by default · works offline on your own model</li>
         </ul>
       </div>
       <div class="ft-stage reveal">
@@ -310,13 +310,33 @@
       <div class="ai-pillar">
         <span class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span>
         <h4>Private</h4>
-        <p>No data ever leaves your infrastructure. No third parties, no API keys, no telemetry — ever.</p>
+        <p>On the local model, nothing leaves your server. Through Aperture, prompts go only to the provider you pick. No API keys in Sempa, no telemetry.</p>
       </div>
       <div class="ai-pillar">
         <span class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
-        <h4>Local</h4>
-        <p>Runs on a small model (Ollama) you host yourself — no usage costs, no rate limits, works offline.</p>
+        <h4>Your choice</h4>
+        <p>A small model (Ollama) on your own server by default: no usage costs, no rate limits, works offline. Or any model your Aperture gateway serves.</p>
       </div>
+    </div>
+
+    <div class="ap-callout reveal">
+      <div class="ap-callout-copy">
+        <span class="eyebrow">Tailscale Aperture</span>
+        <h3 class="h3">Already on Aperture? Use every model you have.</h3>
+        <p>Switch <b>Where the model runs</b> to <b>Aperture</b>, enter your gateway's address and Sempa lists every model it serves this server: Claude, Gemini, OpenAI, or ones on your own hardware. No API keys live in Sempa, because Aperture knows the server by its tailnet identity.</p>
+        <a class="btn btn-ghost" href="docs.html#aperture" style="margin-top:18px">Set it up &rarr;</a>
+      </div>
+      <div class="ap-demo" aria-hidden="true">
+          <div class="ap-seg"><span>On this server</span><span class="on">Aperture</span></div>
+          <div class="ap-status"><i></i>Ready &middot; claude-haiku-5-5</div>
+          <div class="ap-url"><span class="mono">https://ai.your-tailnet.ts.net</span><span class="ap-ok">Connected</span></div>
+          <div class="ap-list">
+            <div class="ap-model on"><span class="r"></span><span class="n mono">claude-haiku-5-5</span><span class="p">anthropic</span></div>
+            <div class="ap-model"><span class="r"></span><span class="n mono">gemini-3.8-flash</span><span class="p">gemini</span></div>
+            <div class="ap-model"><span class="r"></span><span class="n mono">qwen3:14b</span><span class="p">your GPU</span></div>
+          </div>
+          <div class="ap-foot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"/><circle cx="16.5" cy="7.5" r=".5" fill="currentColor"/><path d="m3 3 18 18"/></svg>No API key &middot; your tailnet identity</div>
+        </div>
     </div>
 
     <div class="sec-head center reveal" style="margin:56px auto 32px;max-width:560px">
